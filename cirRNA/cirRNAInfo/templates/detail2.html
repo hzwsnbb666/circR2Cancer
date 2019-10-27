@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-table.min.css">
+    <script src="../static/js/bootstrap-table.min.js"></script>
+    <script src="../static/js/browse.js"></script>
+</head>
+<body>
+
+<div id="wrap" style="height: auto; white-space: pre-line">
+    <div id="content2" style="background: lightgreen;height: auto">
+        <div id="table1" class="database-content1">
+            <h3>circRNA_Disease</h3>
+            <table border="1px" cellpadding="1" cellspacing="0">
+                {% for cir in circrna_cancer %}
+                    <tr><td>circRNA</td><td>{{ cir.circRNA }}</td></tr>
+                    <tr><td>disease</td><td>{{ cir.disease }}</td></tr>
+                {% endfor %}
+            </table>
+
+            <h3>circRNA_Info</h3>
+            <table border="1px" cellpadding="1" cellspacing="0" style="table-layout: fixed;word-wrap: break-word;width: 100%">
+                {% for cir in circrna %}
+                    <tr><td>circRNA</td><td>{{ cir.circRNA|default:"N/A" }}</td></tr>
+                    <tr><td>method_of_circRNA_direction</td><td>{{ cir.method_of_circRNA_direction|default:"N/A" }}</td></tr>
+                    <tr><td>expression_pattern</td><td>{{ cir.expression_pattern|default:"N/A" }}</td></tr>
+                    <tr><td>Chromosome</td><td>{{ cir.Chromosome|default:"N/A" }}</td></tr>
+                    <tr><td>Region</td><td>{{ cir.Region|default:"N/A" }}</td></tr>
+                    <tr><td>Strand</td><td>{{ cir.Strand|default:"N/A" }}</td></tr>
+                    <tr><td>Gene_Symbol</td><td>{{ cir.Gene_Symbol|default:"N/A" }}</td></tr>
+                    <tr><td>host_gene</td><td>{{ cir.host_gene|default:"N/A" }}</td></tr>
+                    <tr><td>tissue_or_cell_line</td><td>{{ cir.tissue_or_cell_line|default:"N/A" }}</td></tr>
+                    <tr><td>Transcription_interval</td><td>{{ cir.Transcription_interval|default:"N/A" }}</td></tr>
+                    <tr><td>Sequence</td><td>{{ cir.Sequence|default:"N/A" }}</td></tr>
+
+                {% endfor %}
+            </table>
+            <br/>
+            <h3>Cancer_Info</h3>
+                <table border="1px" cellpadding="1" cellspacing="0" style="table-layout: fixed;width: 100%">
+                    {% for cir in cancer %}
+                        <tr><td>disease</td><td>{{ cir.disease |default:"N/A"}}</td></tr>
+                        <tr><td>DOID</td><td>{{ cir.DOID |default:"N/A"}}</td></tr>
+                        <tr><td>Definition</td><td>{{ cir.Definition|default:"N/A" }}</td></tr>
+                        <tr><td>Xrefs</td><td>{{ cir.Xrefs|default:"N/A" }}</td></tr>
+                        <tr><td>Subsets</td><td>{{ cir.Subsets|default:"N/A" }}</td></tr>
+                        <tr><td>Synonyms</td><td>{{ cir.Synonyms|default:"N/A" }}</td></tr>
+                        <tr><td>Relationships</td><td>{{ cir.Relationships|default:"N/A" }}</td></tr>
+                    {% endfor %}
+                </table>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

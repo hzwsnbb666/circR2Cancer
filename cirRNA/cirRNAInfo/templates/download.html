@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" content="text/html">
+    <script src="../static/js/jquery-latest.js"></script>
+    <script src="../static/js/propper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+    <script src="../static/js/bootstrap-table.min.js"></script>
+    <script src="../static/js/bootstrap-table-pagejump.js"></script>
+    <script src="../static/js/browse.js"></script>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/download.css">
+    <link href="../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
+    <title>Title</title>
+    <style>
+        li{
+            list-style-type:disc;
+        }
+    </style>
+
+</head>
+<body ondragstart="false">
+<div id="wrap">
+    <div id="header">
+    </div>
+    <div id="navi">
+        <ul id="coolMenu">
+            <li class="func
+
+                    "><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func
+                                ">
+                <a href={% url 'browse' %}><b>Browse</b></a>
+
+            </li>
+            <li class="func active">
+                <a href={% url 'search' %}><b>Search</b></a>
+
+            </li>
+
+            <li class="func
+                 ">
+                <a href={% url 'download' %}><b>Download</b></a>
+
+            </li>
+            <li class="func
+                 ">
+                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
+
+            </li>
+
+        </ul>
+    </div>
+    <!-- search -->
+    <div id="content2">
+        <div class="welcome">
+            <div class="" style="text-align:justify;font-size: 23px;">
+                &nbsp;&nbsp;Welcome to use circR2Cancer. In order to provide the necessary assistance to the relevant
+                staff, we have stored the relevant information in the database in the form of tables and made it
+                available for
+                everyone to download. Each table contains the following contents:
+                <br>
+                <ul style="margin-left: 20px">
+                    <li>
+                        circRNA-cancer association table, which contains circRNA name, the name of disease,
+                        species,
+                        functional describution,etc.
+                    </li>
+                    <li>
+                        circRNA-miRNA association table, which includes the name of circRNA and miRNA.
+                    </li>
+                    <li>miRNA-cancer association table which contains miRNAs name, related disease, PMID and
+                        functional describution.
+                    </li>
+
+                    <li>circRNA information table which involves circRNAs name, methods of circRNA
+                        detection,
+                        expression pattern, chromosome and region, etc.
+                    </li>
+
+                    <li>miRNA information table which contains miRNAs name, accession, symbol, description
+                        and
+                        gene family, etc.
+                    </li>
+
+                    <li>cancer information table which includes the name of disease, DOID definition,
+                        Xrefs,
+                        subsets, synonyms and relationships.
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="table1" class="database-content1">
+            <table id="tb1" class="table table-bordered">
+                <tr>
+                    <td>circRNA-Cancer</td>
+                    <td>circRNA-Cancer association table</td>
+                    <td><a style="color: #5bc0de" href="../static/table/circrna-cancer.xlsx"
+                           download="circrna-cancer.xlsx">circRNA-Cancer.xlsx</a></td>
+                </tr>
+
+                <tr>
+                    <td>circRNA-miRNA</td>
+                    <td>circRNA-miRNA association table</td>
+                    <td><a style="color: #5bc0de" href="../static/table/circRNA-miRNA.xlsx"
+                           download="circRNA-miRNA.xlsx">circRNA-miRNA.xlsx</a></td>
+                </tr>
+                <tr>
+                    <td>miRNA-Cancer</td>
+                    <td>miRNA-Cancer association table</td>
+                    <td><a style="color: #5bc0de" href="../static/table/mirna-cancer.xlsx"
+                           download="mirna-cancer.xlsx">miRNA-Cancer.xlsx</a></td>
+                </tr>
+                <tr>
+                    <td>circRNA_info</td>
+                    <td>circRNA information table</td>
+                    <td><a style="color: #5bc0de" href="../static/table/circRNA-info.xlsx"
+                           download="circRNA-info.xlsx">circRNA_info.xlsx</a></td>
+                </tr>
+                <tr>
+                    <td>miRNA_info</td>
+                    <td>miRNA information table</td>
+                    <td><a style="color: #5bc0de" href="../static/table/MiRNA信息.xlsx" download="MiRNA信息.xlsx">miRNA_info.xlsx</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Cancer_info</td>
+                    <td>Cancer information table</td>
+                    <td><a style="color: #5bc0de" href="../static/table/癌症信息.xlsx"
+                           download="癌症信息.xlsx">Cancer_info.xlsx</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div id="footer">
+        <p>Maintained by
+            <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
+        </p>
+    </div>
+</div>
+</body>
+</html>
+
+
+

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/zwgk_new.css" />
+<title>no</title>
+</head>
+<style>
+*{ margin:0; padding:0;}
+body{ color: #333; font-family: Microsoft Yahei, Arial, Helvetica, sans-serif;}
+
+table{table-layout:fixed;}
+td{
+	word-wrap:break-word;
+}
+</style>
+<script language="javascript">
+//假设Table的ID为angel
+$("#angel tr").click(function(){
+  $(this).addClass("hover").siblings("tr").removeClass("on");
+});
+</script>
+<body>
+<br/>
+
+<h2 >Relationship of "{{nn}}":</h2> <br/>
+
+{%for i in rela%}
+<h4>relationship of "{{i.displaycir_id}}" and "{{i.disease_name}}"</h4><br/>
+<center>
+<table  border="1" cellpadding="2" cellspacing="1" id="angel" width="94%">
+
+    <tr>
+        <td  align="center" width="20%">cir_bace_id</td>
+        <td  align="left" width="80%">{{i.cir_bace_id}}</td>
+    </tr>
+    <tr>
+        <td  align="center" width="20%">cir_id</td>
+        <td  align="left" width="80%">{{i.cir_id}}</td>
+    </tr>
+	<tr>
+        <td  align="center" width="20%">disease_name</td>
+        <td  align="left" width="80%">{{i.disease_name}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">pmid</td>
+        <td  align="left" width="80%">{{i.pmid}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">evidence</td>
+        <td  align="left" width="80%">{{i.evidence}}</td>
+    </tr>
+	
+	    
+</table>
+</center>
+<br/>
+{%endfor%}
+
+{%for i in cir%}
+<br/>
+<h2 >Infomation of "{{i.name_cirrna}}":</h2> <br/>
+<center>
+<table  border="1" cellpadding="2" cellspacing="1" id="angel" width="94%">
+
+    <tr>
+        <td  align="center" width="20%">name_cirrna</td>
+        <td  align="left" width="80%">{{i.name_cirrna}}</td>
+    </tr>
+    <tr>
+        <td  align="center" width="20%">chrom</td>
+        <td  align="left" width="80%">{{i.chrom}}</td>
+    </tr>
+	<tr>
+        <td  align="center" width="20%">start</td>
+        <td  align="left" width="80%">{{i.start}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">end</td>
+        <td  align="left" width="80%">{{i.end}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">strand</td>
+        <td  align="left" width="80%">{{i.strand}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">circRNA_ID</td>
+        <td  align="left" width="80%">{{i.circRNA_ID}}</td>
+    </tr>
+    <tr>
+        <td  align="center" width="20%">genomic_length</td>
+        <td  align="left" width="80%">{{i.genomic_length}}</td>
+    </tr>
+	<tr>
+        <td  align="center" width="20%">spliced_seq_length</td>
+        <td  align="left" width="80%">{{i.spliced_seq_length}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">samples</td>
+        <td  align="left" width="80%">{{i.samples}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">repeats</td>
+        <td  align="left" width="80%">{{i.repeats}}</td>
+    </tr>
+		    <tr>
+        <td  align="center" width="20%">annotation</td>
+        <td  align="left" width="80%">{{i.annotation}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">best_transcript</td>
+        <td  align="left" width="80%">{{i.best_transcript}}</td>
+    </tr>
+	    
+		
+	<tr>
+        <td  align="center" width="20%">gene_symbol</td>
+        <td  align="left" width="80%">{{i.gene_symbol}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">circRNA_study</td>
+        <td  align="left" width="80%">{{i.circRNA_study}}</td>
+    </tr>
+</table>
+
+</center>
+<br/>
+{%endfor%}
+</body>
+</html>

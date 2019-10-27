@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../static/js/browse.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
+    <title>Title</title>
+
+</head>
+<body>
+<img id="img" src="../static/img/1.png" alt="img" style="position: absolute;clip: rect(0px,1200px,800px,0px);" />
+<div><script>
+        function MouseWheelHandler(e)
+        {
+    // cross-browser wheel delta
+            var e = window.event || e; // old IE support
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+            img.style.width = Math.max(50, Math.min(800, img.width + (30 * delta))) + "px";
+            return false;
+        }
+        </script></div>
+<script type="text/javascript">
+var img = document.getElementById('img');
+if (img.addEventListener)
+{
+    // IE9, Chrome, Safari, Opera
+    img.addEventListener("mousewheel", MouseWheelHandler, false);
+    // Firefox
+    //img.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+}
+// IE 6/7/8
+else img.attachEvent("onmousewheel", MouseWheelHandler);
+</script>
+</body>
+</html>

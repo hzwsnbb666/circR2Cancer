@@ -1,0 +1,225 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <script src="../static/js/jquery-latest.js"></script>
+    <script src="../static/js/propper.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
+
+    <script src="../static/js/bootstrap-table.min.js"></script>
+    <script src="../static/js/bootstrap-table-pagejump.js"></script>
+    <script src="../static/js/browse.js"></script>
+
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-table.min.css">
+    <link href="../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
+    <title>Welcome to CirRNA</title>
+</head>
+<body>
+<div id="wrap">
+    <div id="header">
+    </div>
+    <div id="navi">
+        <ul id="coolMenu">
+            <li class="func
+
+                    "><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func
+                                ">
+                <a href={% url 'browse' %}><b>Browse</b></a>
+
+            </li>
+            <li class="func active">
+                <a href={% url 'search' %}><b>Search</b></a>
+
+            </li>
+
+            <li class="func
+                 ">
+                <a href={% url 'download' %}><b>Download</b></a>
+
+            </li>
+            <li class="func
+                 ">
+                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
+
+            </li>
+
+        </ul>
+    </div>
+    <!-- search -->
+
+    <div id="content3" style="margin-top: 30px;min-height: 100px">
+        <br/>
+        <h2 style="color: gray">Browse by Interactions</h2>
+        <div id="menu" style="margin-top: 5%">
+            <ul>
+                <div id="species-item">
+                    <li>
+                        <img id="species-img1" class="on" src="../static/img/species2.png" onclick="click_img('1')">
+                    </li>
+                </div>
+                <div id="species-item">
+                    <li>
+                        <img id="species-img2" class="off" src="../static/img/species1.png" onclick="click_img('2')">
+                    </li>
+                </div>
+                <div id="species-item">
+                    <li>
+                        <img id="species-img3" class="off" src="../static/img/species3.png" onclick="click_img('3')">
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div id="content2" style="height: auto;margin-top: 0">
+        <h2 style="color: gray">Result</h2>
+        <div id="table1" class="database-content1">
+            <table class="database-table" id="database-table1">
+                {% for cir in Cir1 %}
+                    <tr>
+                        <td>{{ cir.circRNA }}</td>
+                        <td>{{ cir.disease }}</td>
+                        <td><a style="color: #5bc0de;" target="_blank"
+                               href="http://127.0.0.1:8000/detail?value=1&{{ cir.circRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.functional_describution }}">detail</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <script type="text/javascript">
+                //没有请求,自己写50条数据
+                $('#database-table1').bootstrapTable({
+                    search: true,
+                    smartDisplay: false,
+                    pagination: true,
+                    pageSize: 10,
+                    pageNumber: 1,
+                    paginationShowPageGo: true,
+                    pageList: [10, 15, 25, 40],
+                    sidePagination: 'client',
+                    paginationFirstText: "first page",
+                    paginationPreText: "previous page",
+                    paginationNextText: "next page",
+                    paginationLastText: "last page",
+                    iconSize: 'pager',
+                    columns: [
+                        {
+                            field: "circRNA",
+                            title: "circRNA",
+                            align: "center",
+                            valign: "middle",
+                            sortable: "true"
+                        },
+
+                        {field: "disease", title: "Cancer", align: "center", valign: "middle", sortable: "true"},
+                        {field: "detail", title: "Detail", align: "center", valign: "middle", sortable: "true"}
+                    ],
+
+                    {# columns: [{field:"name",title:"编号",align:"center",valign:"middle",sortable:"true"},#}
+                    {#{field:"age",title:"年龄",align:"center",valign:"middle",sortable:"true"}],#}
+                    {#data:datas,#}
+                });
+            </script>
+        </div>
+        <div id="table2" class="database-content2">
+            <table id="database-table2">
+
+                {% for cir in Cir2 %}
+                    <tr>
+                        <td>{{ cir.circRNA }}</td>
+                        <td>{{ cir.miRNA }}</td>
+                        <td><a style="color: #5bc0de" target="_blank"
+                               href="http://127.0.0.1:8000/detail?value=2&{{ cir.circRNA }}&{{ cir.miRNA }}">detail</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <script type="text/javascript">
+
+                $('#database-table2').bootstrapTable({
+                    search: true,
+                    pagination: true,
+                    pageSize: 10,
+                    pageNumber: 1,
+                    pageList: [10, 15, 25, 40],
+                    paginationShowPageGo: true,
+                    sidePagination: 'client',
+                    paginationFirstText: "first page",
+                    paginationPreText: "previous page",
+                    paginationNextText: "next page",
+                    paginationLastText: "last page",
+                    iconSize: 'pager',
+                    columns: [{
+                        field: "circRNA",
+                        title: "circRNA",
+                        align: "center",
+                        valign: "middle",
+                        sortable: "true"
+                    },
+                        {
+                            field: "miRNA",
+                            title: "miRNA",
+                            align: "center",
+                            valign: "middle",
+                            sortable: "true"
+                        },
+                        {field: "detail", title: "Detail", align: "center", valign: "middle", sortable: "true"}]
+                });
+            </script>
+        </div>
+
+        <div id="table3" class="database-content2">
+            <table id="database-table3">
+                {% for cir in Cir5 %}
+                    <tr>
+                        <td>{{ cir.miRNA }}</td>
+                        <td>{{ cir.disease }}</td>
+
+                        <td><a style="color: #5bc0de;" target="_blank"
+                               href="http://127.0.0.1:8000/detail?value=3&{{ cir.miRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.description }}">detail</a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </table>
+            <script type="text/javascript">
+                //没有请求,自己写50条数据
+                {#var datas  = [];#}
+                {#for(var i=0;i<50;i++){#}
+                {#    datas[i]={"name":i+"号","age":i+"岁"}#}
+                $('#database-table3').bootstrapTable({
+                    search: true,
+                    pagination: true,
+                    pageSize: 10,
+                    pageNumber: 1,
+                    pageList: [10, 15, 25, 40],
+                    paginationShowPageGo: true,
+                    sidePagination: 'client',
+                    paginationFirstText: "first page",
+                    paginationPreText: "previous page",
+                    paginationNextText: "next page",
+                    paginationLastText: "last page",
+                    iconSize: 'pager',
+                    columns: [
+                        {field: "miRNA", title: "miRNA", align: "center", valign: "middle", sortable: "true"},
+                        {field: "disease", title: "Cancer", align: "center", valign: "middle", sortable: "true"},
+                        {field: "Detail", title: "Detail", align: "center", valign: "middle", sortable: "true"}
+                    ],
+
+                });
+            </script>
+        </div>
+    </div>
+
+    <div id="footer">
+        <p>Maintained by
+            <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
+        </p>
+    </div>
+</div>
+</body>
+</html>

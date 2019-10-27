@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/zwgk_new.css" />
+<title>no</title>
+</head>
+<style>
+*{ margin:0; padding:0;}
+body{ color: #333; font-family: Microsoft Yahei, Arial, Helvetica, sans-serif;}
+
+table{table-layout:fixed;}
+td{
+	word-wrap:break-word;
+}
+</style>
+<script language="javascript">
+//假设Table的ID为angel
+$("#angel tr").click(function(){
+  $(this).addClass("hover").siblings("tr").removeClass("on");
+});
+</script>
+<body>
+<br/>
+
+<h2 >Relationship of "{{nn}}":</h2> <br/>
+
+{%for i in rela%}
+<h4>relationship of "{{i.displaycir_id}}" and "{{i.disease_name}}"</h4><br/>
+<center>
+<table  border="1" cellpadding="2" cellspacing="1" id="angel" width="94%">
+
+    <tr>
+        <td  align="center" width="20%">cir_bace_id</td>
+        <td  align="left" width="80%">{{i.cir_bace_id}}</td>
+    </tr>
+    <tr>
+        <td  align="center" width="20%">cir_id</td>
+        <td  align="left" width="80%">{{i.cir_id}}</td>
+    </tr>
+	<tr>
+        <td  align="center" width="20%">disease_name</td>
+        <td  align="left" width="80%">{{i.disease_name}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">pmid</td>
+        <td  align="left" width="80%">{{i.pmid}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">evidence</td>
+        <td  align="left" width="80%">{{i.evidence}}</td>
+    </tr>
+	
+	    
+</table>
+</center>
+<br/>
+{%endfor%}
+
+
+{%for i in dise%}
+
+<br/>
+<h2 >Infomation of "{{i.name_incirrna}}":</h2> <br/>
+<center>
+<table  border="1" cellpadding="2" cellspacing="1" id="angel" width="94%">
+
+    <tr>
+        <td  align="center" width="20%">name_incirrna</td>
+        <td  align="left" width="80%">{{i.name_incirrna}}</td>
+    </tr>
+    <tr>
+        <td  align="center" width="20%">name</td>
+        <td  align="left" width="80%">{{i.name}}</td>
+    </tr>
+	<tr>
+        <td  align="center" width="20%">DOID</td>
+        <td  align="left" width="80%">{{i.DOID}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">Definition</td>
+        <td  align="left" width="80%">{{i.Definition}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">Xrefs</td>
+        <td  align="left" width="80%">{{i.Xrefs}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">Alternateids</td>
+        <td  align="left" width="80%">{{i.Alternateids}}</td>
+    </tr>
+    <tr>
+        <td  align="center" width="20%">Subsets</td>
+        <td  align="left" width="80%">{{i.Subsets}}</td>
+    </tr>
+	<tr>
+        <td  align="center" width="20%">Synonyms</td>
+        <td  align="left" width="80%">{{i.Synonyms}}</td>
+    </tr>
+	    <tr>
+        <td  align="center" width="20%">Relationships</td>
+        <td  align="left" width="80%">{{i.Relationships}}</td>
+    </tr>
+	  
+</table>
+
+</center><br/>
+
+{%endfor%}
+</body>
+</html>
