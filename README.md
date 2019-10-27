@@ -35,4 +35,4 @@
 ### 4. <font color="lightblue">DataHandle</font>文件夹
         其中存放了实现将相应的excel表格导入到数据库中的py文件，请读者自行阅读模仿相应做法即可
 ### 5. <font color="lightblue">html</font> 文件
-        这些文件存放在circRNAInfo/templates目录下,为对应的前端页面代码，实现细节请读者自行理解(尤其是bootstraptable部分)    
+        这些文件存放在cirRNA/circRNAInfo/templates目录下,为对应的前端页面代码，实现细节请读者自行理解(尤其是bootstraptable部分)    
