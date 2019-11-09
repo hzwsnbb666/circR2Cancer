@@ -14,7 +14,7 @@
 3. 使用快捷键<font color="lightblue">ctrl+shift+N</font>打开<font color="lightblue">views.py</font>文件,<font color="lightblue">ctrl+F</font>搜索”12345s",将所有搜索结果替换成开发者的mysql数据库的root用户的密码<font color="red">(原开发者的密码为12345s)</font>
 4. 打开pycharm的terminal(快捷键Alt+F12),输入以下两条指令
     + `python manage.py makemigrations`
-    + `python mange.py migrate`
+    + `python manage.py migrate`
 5. 打开mysql,执行如下命令
     + `use mysql;`
     + `SET @@global.sql_mode= ''`(单引号而非双引号)
