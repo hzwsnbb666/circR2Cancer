@@ -4,6 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="shortcut icon" href="#"/>
     <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
     <link rel="stylesheet" href="../static/css/jquery.lightbox-0.5.css" media="screen">
@@ -13,9 +14,6 @@
 
     <script src="../static/js/index.js"></script>
 
-    <script type="text/javascript">
-
-    </script>
     <style>
         img {
 
@@ -25,34 +23,33 @@
 
     <title>Welcome to CirRNA</title>
 </head>
-<body>
+<body style="background-image: linear-gradient(to bottom,#89e4ff,#ffffff);">
 <div id="wrap">
     <div id="header">
+        <div style="float:left;width: 20%;margin-left:10%"><img id="header_image" src="../static/img/GXU.png">
+        </div>
+        <div style="float: right;width: 70%;font-size: 50px;color: orange">
+            c i r c R 2 C a n c e r
+        </div>
     </div>
     <div id="navi">
         <ul id="coolMenu">
-            <li class="func
-
-                    "><a href={% url 'index' %}><b>Home</b></a></li>
-            <li class="func
-                                ">
+            <li class="func active"><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func">
                 <a href={% url 'browse' %}><b>Browse</b></a>
 
             </li>
-            <li class="func active">
+            <li class="func">
                 <a href={% url 'search' %}><b>Search</b></a>
 
             </li>
 
-            <li class="func
-                 ">
+            <li class="func">
                 <a href={% url 'download' %}><b>Download</b></a>
 
             </li>
-            <li class="func
-                 ">
-                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
-
+            <li class="func">
+                <a href={% url 'about' %}><b>About</b></a>
             </li>
 
         </ul>
@@ -60,36 +57,9 @@
     <!-- search -->
 
 
-    <div id="content">
+    <div id="content" style="border-radius:20px;margin-top: 5px">
         <br/>
-        {#        <script src="js/jquery.maphilight.min.js"></script>#}
-        {#        <script>#}
-        {#            $(function () {#}
-        {#                $('#introimg').maphilight();#}
-        {#            });#}
-        {#            $.fn.maphilight.defaults = {#}
-        {#                fill: true,#}
-        {#                fillColor: '000000',#}
-        {#                fillOpacity: 0.2,#}
-        {#                stroke: true,#}
-        {#                strokeColor: '0000ff',#}
-        {#                strokeOpacity: 1,#}
-        {#                strokeWidth: 1,#}
-        {#                fazde: true,#}
-        {#                alwaysOn: false,#}
-        {#                neverOn: false,#}
-        {#                groupBy: false,#}
-        {#                wrapClass: true,#}
-        {#                shadow: false,#}
-        {#                shadowX: 0,#}
-        {#                shadowY: 0,#}
-        {#                shadowRadius: 6,#}
-        {#                shadowColor: '000000',#}
-        {#                shadowOpacity: 0.8,#}
-        {#                shadowPosition: 'outside',#}
-        {#                shadowFrom: false#}
-        {#            }#}
-        {#        </script>#}
+
         <style type="text/css">
 
             #marquee {
@@ -104,16 +74,11 @@
 
         </style>
         <div id="intro">
-            {#            <img src="img/flow.png"  width="610px" id="introimg" usemap="#flowmap">#}
-            <map id="flowmap" name="flowmap">
-                <area shape="rect" coords="80,48,564,145" href="index.php?p=search">
-                <area shape="rect" coords="80,145,564,270" href="index.php?p=LncRNA">
-                <area shape="rect" coords="80,270,564,439" href="index.php?p=network">
-            </map>
         </div>
         <div id="content2" style="height: auto;margin-top: 0px">
             <div class="welcome" style="word-wrap: break-word;text-align:justify;margin-top: -40px;font-size: 25px">
-                &nbsp;&nbsp;Accumulating biological experimental results have shown that circRNA plays important roles in gene
+                &nbsp;&nbsp;Accumulating biological experimental results have shown that circRNA plays important roles
+                in gene
                 transcription, post-transcription and translational regulation. Therefore, abnormal expression of
                 circRNA is associated with a group of cancers. Thus, it is of great importance to develop a high-quality
                 database that stores dysregulated circRNAs in cancers. The circR2Cancer is a manually curated database
