@@ -10,43 +10,42 @@
     <script src="../static/js/bootstrap-table.js"></script>
     <script src="../static/js/browse.js"></script>
 </head>
-<body>
+<body style="background-image: linear-gradient(to bottom,#89e4ff,#ffffff);background-attachment: fixed;">
 <div id="wrap">
     <div id="header">
+        <div style="float:left;width: 20%;margin-left:10%"><img id="header_image" src="../static/img/GXU.png">
+        </div>
+        <div style="float: right;width: 70%;font-size: 50px;color: orange">
+                c i r c R 2 C a n c e r
+        </div>
     </div>
     <div id="navi">
         <ul id="coolMenu">
-            <li class="func
-
-                    "><a href={% url 'index' %}><b>Home</b></a></li>
-            <li class="func
-                                ">
+            <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func">
                 <a href={% url 'browse' %}><b>Browse</b></a>
 
             </li>
-            <li class="func active">
+            <li class="func">
                 <a href={% url 'search' %}><b>Search</b></a>
 
             </li>
 
-            <li class="func
-                 ">
+            <li class="func">
                 <a href={% url 'download' %}><b>Download</b></a>
 
             </li>
-            <li class="func
-                 ">
-                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
-
+            <li class="func">
+                <a href={% url 'about' %}><b>About</b></a>
             </li>
 
         </ul>
     </div>
     <!-- search -->
 
-    <div id="content" style="height: auto; white-space: pre-line;margin-top: 30px">
-        <div id="content2" style="height: auto">
-            <div id="table1" class="database-content1 table table-bordered">
+    <div id="content" style="height: auto; white-space: pre-line;margin-top: 5px">
+        <div id="content2" style="height: auto;width: 95%">
+            <div id="table1" class="database-content1 table table-bordered;width: 100%">
                 {% if flag == '1' %}
                     <h3>circRNA-Cancer</h3>
                     <table id="tb1" class="table table-bordered">

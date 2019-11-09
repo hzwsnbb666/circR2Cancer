@@ -25,40 +25,39 @@
     </style>
 
 </head>
-<body ondragstart="false">
+<body style="background-image: linear-gradient(to bottom,#89e4ff,#ffffff)">
 <div id="wrap">
     <div id="header">
+        <div style="float:left;width: 20%;margin-left:10%"><img id="header_image" src="../static/img/GXU.png">
+        </div>
+        <div style="float: right;width: 70%;font-size: 50px;color: orange">
+                c i r c R 2 C a n c e r
+        </div>
     </div>
     <div id="navi">
         <ul id="coolMenu">
-            <li class="func
-
-                    "><a href={% url 'index' %}><b>Home</b></a></li>
-            <li class="func
-                                ">
+            <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func">
                 <a href={% url 'browse' %}><b>Browse</b></a>
 
             </li>
-            <li class="func active">
+            <li class="func">
                 <a href={% url 'search' %}><b>Search</b></a>
 
             </li>
 
-            <li class="func
-                 ">
+            <li class="func active">
                 <a href={% url 'download' %}><b>Download</b></a>
 
             </li>
-            <li class="func
-                 ">
-                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
-
+            <li class="func">
+                <a href={% url 'about' %}><b>About</b></a>
             </li>
 
         </ul>
     </div>
     <!-- search -->
-    <div id="content2">
+    <div id="content2" style="border-radius: 20px;margin-top: 5px">
         <div class="welcome">
             <div class="" style="text-align:justify;font-size: 23px;">
                 &nbsp;&nbsp;Welcome to use circR2Cancer. In order to provide the necessary assistance to the relevant

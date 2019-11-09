@@ -2,13 +2,17 @@ html, body {
 
     margin: 0px;
     padding: 0px;
+    height: 100vw;
 }
-
+#header_image{
+    width:90px;
+    height: 90px;
+}
 #wrap {
     width: 1200px;
     margin: 0 auto;
     background: white;
-    height: 200px;
+    height: auto;
     /*box-shadow: 3px 3px 12px 9px #dfdcdc;*/
 }
 
@@ -64,7 +68,6 @@ a > b{
 }
 .plant_name p {
     font-size: 16px;
-    color: #000;
     background: rgba(49, 69, 31, 0.77);
     border: 1px solid #e1e1e1;
     border-radius: 5px;
@@ -72,13 +75,16 @@ a > b{
     color: white;
     text-align: center;
     margin-right: 8px;
+
 }
 
 #content {
+    margin-top:10px;
     width: 1200px;
     min-height: 800px;
     float: left;
     background: white;
+    border-radius: 20px;
     /*border-radius: 5px;*/
 }
 
@@ -120,20 +126,26 @@ a > b{
 
 
 .func {
-    float: left;
-    margin-left: 40px;
+    display: block;
+    float:left;
+    margin-left: 30px;
+    margin-right:30px;
 }
-
+.active a{
+    background: #89e4ff;
+}
 .func a {
-    font-size: 20px;
+    display: block;
+    float: left;
+    font-size: 30px;
+    border-radius: 5px;
 }
-
 .addi {
     float: right;
     /*margin-left:5px;*/
 }
 
-.activeli > a {
+.active li > a {
     /*background-color:#0000A0;*/
     color: #fff;
     font-style: italic;
@@ -143,12 +155,11 @@ a > b{
 #header {
     position: relative;
     width: 1200px;
-    height: 123px;
+    height: 90px;
     float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
-    background: url("../img/logo1.png") no-repeat;
     background-position: center center;
 
 }
@@ -164,14 +175,15 @@ a > b{
 }
 
 #navi {
-    background:lightgray;
+    background:white;
     position: relative;
-    width: 1200px;
+    width: 100%;
     float: left;
     margin-left: auto;
     margin-right: auto;
     min-height: 77px;
     margin-top: 0px;
+    border-radius: 20px;
 }
 
 a:hover {
@@ -273,7 +285,7 @@ a.external {
 }
 
 #coolMenu li {
-    width: 85px;
+    width: auto;
     text-align: left;
     display: inline;
 }
