@@ -10,14 +10,13 @@
     <script src="../static/js/bootstrap-table.js"></script>
     <script src="../static/js/browse.js"></script>
 </head>
-<body style="background-image: linear-gradient(to bottom,#89e4ff,#ffffff);background-attachment: fixed;">
+<body>
 <div id="wrap">
+    <div style="margin-top: 3%"></div>
     <div id="header">
-        <div style="float:left;width: 20%;margin-left:10%"><img id="header_image" src="../static/img/GXU.png">
+        <div style="float:left;width: 100%;"><img id="header_image" src="../static/img/GXU2.png">
         </div>
-        <div style="float: right;width: 70%;font-size: 50px;color: orange">
-                c i r c R 2 C a n c e r
-        </div>
+
     </div>
     <div id="navi">
         <ul id="coolMenu">
@@ -43,327 +42,321 @@
     </div>
     <!-- search -->
 
-    <div id="content" style="height: auto; white-space: pre-line;margin-top: 5px">
-        <div id="content2" style="height: auto;width: 95%">
-            <div id="table1" class="database-content1 table table-bordered;width: 100%">
-                {% if flag == '1' %}
-                    <h3>circRNA-Cancer</h3>
-                    <table id="tb1" class="table table-bordered">
-                        {% for cir in circrna_cancer %}
-                            <tr>
-                                <td><b>circRNA</b></td>
-                                <td><b>Cancer</b></td>
-                                <td><b>Pmid</b></td>
-                            </tr>
-                            <tr>
-                                <td>{{ cir.circRNA }}</td>
-                                <td>{{ cir.disease }}</td>
-                                <td>{{ cir.pmid }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
+    <div id="content" style="height: auto; white-space: pre-line;margin-top: 5px;min-height: auto;">
+        <div id="table1" class="database-content1" style="margin-top: 0">
+            {% if flag == '1' %}
+                <h3 style="margin-top: -30px;padding: 0;vertical-align: top"><b>circRNA-Cancer</b></h3>
+                <table id="tb1" class="table table-bordered">
+                    {% for cir in circrna_cancer %}
+                        <tr>
+                            <td><b>circRNA</b></td>
+                            <td><b>Cancer</b></td>
+                            <td><b>Pmid</b></td>
+                        </tr>
+                        <tr>
+                            <td>{{ cir.circRNA }}</td>
+                            <td>{{ cir.disease }}</td>
+                            <td>{{ cir.pmid }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
 
-                    <h3>circRNA_info</h3>
-                    <table id="tb2" class="table table-bordered">
-                        {% for cir in circrna %}
-                            <tr>
-                                <td><b>circRNA</b></td>
-                                {% for i in circrna_cancer %}
-                                    <td>{{ i.circRNA }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <td><b>Method_of_circRNA_direction</b></td>
-                                <td>{{ cir.method_of_circRNA_direction|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Expression_pattern</b></td>
-                                <td>{{ cir.expression_pattern|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Chromosome</b></td>
-                                <td>{{ cir.Chromosome|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Region</b></td>
-                                <td>{{ cir.Region|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Strand</b></td>
-                                <td>{{ cir.Strand|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Gene_symbol</b></td>
-                                <td>{{ cir.Gene_Symbol|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Host_gene</b></td>
-                                <td>{{ cir.host_gene|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Tissue_or_cell_line</b></td>
-                                <td>{{ cir.tissue_or_cell_line|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Transcription_interval</b></td>
-                                <td>{{ cir.Transcription_interval|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Sequence</b></td>
-                                <td>{{ cir.Sequence|default:"N/A" }}</td>
-                            </tr>
+                <h3 style="margin-top: -30px;"><b>circRNA_info</b></h3>
+                <table id="tb2" class="table table-bordered">
+                    {% for cir in circrna %}
+                        <tr>
+                            <td><b>circRNA</b></td>
+                            {% for i in circrna_cancer %}
+                                <td>{{ i.circRNA }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><b>Method_of_circRNA_direction</b></td>
+                            <td>{{ cir.method_of_circRNA_direction|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Expression_pattern</b></td>
+                            <td>{{ cir.expression_pattern|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Chromosome</b></td>
+                            <td>{{ cir.Chromosome|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Region</b></td>
+                            <td>{{ cir.Region|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Strand</b></td>
+                            <td>{{ cir.Strand|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Gene_symbol</b></td>
+                            <td>{{ cir.Gene_Symbol|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Host_gene</b></td>
+                            <td>{{ cir.host_gene|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tissue_or_cell_line</b></td>
+                            <td>{{ cir.tissue_or_cell_line|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Transcription_interval</b></td>
+                            <td>{{ cir.Transcription_interval|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Sequence</b></td>
+                            <td>{{ cir.Sequence|default:"N/A" }}</td>
+                        </tr>
 
-                        {% endfor %}
-                    </table>
+                    {% endfor %}
+                </table>
 
-                    <br/>
-                    <h3>Cancer_info</h3>
-                    <table id="tb3" class="table table-bordered">
-                        {% for cir in cancer %}
-                            <tr>
-                                <td><b>Cancer</b></td>
-                                {% for i in circrna_cancer %}
-                                    <td>{{ i.disease }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <td><b>DOID</b></td>
-                                <td>{{ cir.DOID |default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Definition</b></td>
-                                <td>{{ cir.Definition|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Xrefs</b></td>
-                                <td>{{ cir.Xrefs|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Subsets</b></td>
-                                <td>{{ cir.Subsets|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Synonyms</b></td>
-                                <td>{{ cir.Synonyms|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Relationships</b></td>
-                                <td>{{ cir.Relationships|default:"N/A" }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-
-
-                    {#                ########################################}
-                {% elif flag == '2' %}
-                    <h3>circRNA-miRNA</h3>
-                    <table id="tb1" class="table table-bordered">
-                        {% for cir in circrna_mirna %}
-                            <tr>
-                                <td><b>circRNA</b></td>
-                                <td><b>miRNA</b></td>
-
-                            </tr>
-                            <tr>
-                                <td>{{ cir.circRNA }}</td>
-                                <td>{{ cir.miRNA }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                    <br>
-                    <h3>circRNA_info</h3>
-                    <table id="tb2" class="table table-bordered">
-                        {% for cir in circrna %}
-                            <tr>
-                                <td><b>circRNA</b></td>
-                                {% for i in circrna_mirna %}
-                                    <td>{{ i.circRNA }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <td><b>Method_of_circRNA_direction</b></td>
-                                <td>{{ cir.method_of_circRNA_direction|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Expression_pattern</b></td>
-                                <td>{{ cir.expression_pattern|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Chromosome</b></td>
-                                <td>{{ cir.Chromosome|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Region</b></td>
-                                <td>{{ cir.Region|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Strand</b></td>
-                                <td>{{ cir.Strand|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Gene_symbol</b></td>
-                                <td>{{ cir.Gene_Symbol|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Host_gene</b></td>
-                                <td>{{ cir.host_gene|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Tissue_or_cell_line</b></td>
-                                <td>{{ cir.tissue_or_cell_line|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Transcription_interval</b></td>
-                                <td>{{ cir.Transcription_interval|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Sequence</b></td>
-                                <td>{{ cir.Sequence|default:"N/A" }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-
-                    <br/>
-                    <h3>miRNA_info</h3>
-                    <table id="tb3" class="table table-bordered">
-                        {% for cir in mirna %}
-                            <tr>
-                                <td><b>miRNA</b></td>
-                                {% for i in circrna_mirna %}
-                                    <td>{{ i.miRNA }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <td><b>Accession</b></td>
-                                <td>{{ cir.Accession |default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Symbol</b></td>
-                                <td>{{ cir.symbol|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Description</b></td>
-                                <td>{{ cir.description|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Gene_family</b></td>
-                                <td>{{ cir.gene_family|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Genome_context</b></td>
-                                <td>{{ cir.Genome_context|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Clustered_miRNAs</b></td>
-                                <td>{{ cir.Clustered_miRNAs|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Database_links</b></td>
-                                <td>{{ cir.database_links|default:"N/A" }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-
-                {% elif flag == '3' %}
-                    <h3>miRNA-Cancer</h3>
-                    <table id="tb1" class="table">
-                        {% for cir in mirna_cancer %}
-                            <tr>
-                                <td><b>miRNA</b></td>
-                                <td><b>Cancer</b></td>
-                                <td><b>Pmid</b></td>
-                            </tr>
-                            <tr>
-                                <td>{{ cir.miRNA }}</td>
-                                <td>{{ cir.disease }}</td>
-                                <td>{{ cir.pmid }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-
-                    <h3>miRNA_info</h3>
-                    <table id="tb2" class="table table-bordered">
-                        {% for cir in mirna %}
-                            <tr>
-                                <td><b>miRNA</b></td>
-                                {% for i in mirna_cancer %}
-                                    <td>{{ i.miRNA }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <td><b>Accession</b></td>
-                                <td>{{ cir.Accession |default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Symbol</b></td>
-                                <td>{{ cir.symbol|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Description</b></td>
-                                <td>{{ cir.description|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Gene_family</b></td>
-                                <td>{{ cir.gene_family|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Genome_context</b></td>
-                                <td>{{ cir.Genome_context|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Clustered_miRNAs</b></td>
-                                <td>{{ cir.Clustered_miRNAs|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Database_links</b></td>
-                                <td>{{ cir.database_links|default:"N/A" }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-
-                    <br/>
-                    <h3>Cancer_info</h3>
-                    <table id="tb3" class="table table-bordered">
-                        {% for cir in cancer %}
-                            <tr>
-                                <td><b>Cancer</b></td>
-                                {% for i in mirna_cancer %}
-                                    <td>{{ i.disease }}</td>
-                                {% endfor %}
-                            </tr>
-                            <tr>
-                                <td><b>DOID</b></td>
-                                <td>{{ cir.DOID |default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Definition</b></td>
-                                <td>{{ cir.Definition|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Xrefs</b></td>
-                                <td>{{ cir.Xrefs|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Subsets</b></td>
-                                <td>{{ cir.Subsets|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Synonyms</b></td>
-                                <td>{{ cir.Synonyms|default:"N/A" }}</td>
-                            </tr>
-                            <tr>
-                                <td><b>Relationships</b></td>
-                                <td>{{ cir.Relationships|default:"N/A" }}</td>
-                            </tr>
-                        {% endfor %}
-                    </table>
+                <br/>
+                <h3 style="margin-top: -70px"><b>Cancer_info</b></h3>
+                <table id="tb3" class="table table-bordered">
+                    {% for cir in cancer %}
+                        <tr>
+                            <td><b>Cancer</b></td>
+                            {% for i in circrna_cancer %}
+                                <td>{{ i.disease }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><b>DOID</b></td>
+                            <td>{{ cir.DOID |default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Definition</b></td>
+                            <td>{{ cir.Definition|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Xrefs</b></td>
+                            <td>{{ cir.Xrefs|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Subsets</b></td>
+                            <td>{{ cir.Subsets|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Synonyms</b></td>
+                            <td>{{ cir.Synonyms|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Relationships</b></td>
+                            <td>{{ cir.Relationships|default:"N/A" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
 
 
+                {#                ########################################}
+            {% elif flag == '2' %}
+                <h3 style="margin-top: -30px"><b>circRNA-miRNA</b></h3>
+                <table id="tb1" class="table table-bordered">
+                    {% for cir in circrna_mirna %}
+                        <tr>
+                            <td><b>circRNA</b></td>
+                            <td><b>miRNA</b></td>
 
+                        </tr>
+                        <tr>
+                            <td>{{ cir.circRNA }}</td>
+                            <td>{{ cir.miRNA }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <br>
+                <h3 style="margin-top: -40px"><b>circRNA_info</b></h3>
+                <table id="tb2" class="table table-bordered">
+                    {% for cir in circrna %}
+                        <tr>
+                            <td><b>circRNA</b></td>
+                            {% for i in circrna_mirna %}
+                                <td>{{ i.circRNA }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><b>Method_of_circRNA_direction</b></td>
+                            <td>{{ cir.method_of_circRNA_direction|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Expression_pattern</b></td>
+                            <td>{{ cir.expression_pattern|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Chromosome</b></td>
+                            <td>{{ cir.Chromosome|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Region</b></td>
+                            <td>{{ cir.Region|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Strand</b></td>
+                            <td>{{ cir.Strand|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Gene_symbol</b></td>
+                            <td>{{ cir.Gene_Symbol|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Host_gene</b></td>
+                            <td>{{ cir.host_gene|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Tissue_or_cell_line</b></td>
+                            <td>{{ cir.tissue_or_cell_line|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Transcription_interval</b></td>
+                            <td>{{ cir.Transcription_interval|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Sequence</b></td>
+                            <td>{{ cir.Sequence|default:"N/A" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
 
-                {% endif %}
+                <br/>
+                <h3 style="margin-top: -70px"><b>miRNA_info</b></h3>
+                <table id="tb3" class="table table-bordered">
+                    {% for cir in mirna %}
+                        <tr>
+                            <td><b>miRNA</b></td>
+                            {% for i in circrna_mirna %}
+                                <td>{{ i.miRNA }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><b>Accession</b></td>
+                            <td>{{ cir.Accession |default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Symbol</b></td>
+                            <td>{{ cir.symbol|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Description</b></td>
+                            <td>{{ cir.description|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Gene_family</b></td>
+                            <td>{{ cir.gene_family|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Genome_context</b></td>
+                            <td>{{ cir.Genome_context|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Clustered_miRNAs</b></td>
+                            <td>{{ cir.Clustered_miRNAs|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Database_links</b></td>
+                            <td>{{ cir.database_links|default:"N/A" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
 
-            </div>
+            {% elif flag == '3' %}
+                <h3 style="margin-top: -30px"><b>miRNA-Cancer</b></h3>
+                <table id="tb1" class="table table-bordered">
+                    {% for cir in mirna_cancer %}
+                        <tr>
+                            <td><b>miRNA</b></td>
+                            <td><b>Cancer</b></td>
+                            <td><b>Pmid</b></td>
+                        </tr>
+                        <tr>
+                            <td>{{ cir.miRNA }}</td>
+                            <td>{{ cir.disease }}</td>
+                            <td>{{ cir.pmid }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <h3 style="margin-top: -30px"><b>miRNA_info</b></h3>
+                <table id="tb2" class="table table-bordered">
+                    {% for cir in mirna %}
+                        <tr>
+                            <td><b>miRNA</b></td>
+                            {% for i in mirna_cancer %}
+                                <td>{{ i.miRNA }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><b>Accession</b></td>
+                            <td>{{ cir.Accession |default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Symbol</b></td>
+                            <td>{{ cir.symbol|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Description</b></td>
+                            <td>{{ cir.description|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Gene_family</b></td>
+                            <td>{{ cir.gene_family|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Genome_context</b></td>
+                            <td>{{ cir.Genome_context|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Clustered_miRNAs</b></td>
+                            <td>{{ cir.Clustered_miRNAs|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Database_links</b></td>
+                            <td>{{ cir.database_links|default:"N/A" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+                <br/>
+                <h3 style="margin-top: -70px"><b>Cancer_info</b></h3>
+                <table id="tb3" class="table table-bordered">
+                    {% for cir in cancer %}
+                        <tr>
+                            <td><b>Cancer</b></td>
+                            {% for i in mirna_cancer %}
+                                <td>{{ i.disease }}</td>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            <td><b>DOID</b></td>
+                            <td>{{ cir.DOID |default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Definition</b></td>
+                            <td>{{ cir.Definition|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Xrefs</b></td>
+                            <td>{{ cir.Xrefs|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Subsets</b></td>
+                            <td>{{ cir.Subsets|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Synonyms</b></td>
+                            <td>{{ cir.Synonyms|default:"N/A" }}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Relationships</b></td>
+                            <td>{{ cir.Relationships|default:"N/A" }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% endif %}
+
         </div>
     </div>
 
