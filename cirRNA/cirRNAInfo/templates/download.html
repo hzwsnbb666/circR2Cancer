@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../static/css/download.css">
     <link href="../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
-    <title>Title</title>
+    <title>Download</title>
     <style>
         li{
             list-style-type:disc;
@@ -25,40 +25,37 @@
     </style>
 
 </head>
-<body ondragstart="false">
+<body>
 <div id="wrap">
+    <div style="margin-top: 3%"></div>
     <div id="header">
+        <div style="float:left;width: 100%;"><img id="header_image" src="../static/img/GXU2.png">
+        </div>
     </div>
     <div id="navi">
         <ul id="coolMenu">
-            <li class="func
-
-                    "><a href={% url 'index' %}><b>Home</b></a></li>
-            <li class="func
-                                ">
+            <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func">
                 <a href={% url 'browse' %}><b>Browse</b></a>
 
             </li>
-            <li class="func active">
+            <li class="func">
                 <a href={% url 'search' %}><b>Search</b></a>
 
             </li>
 
-            <li class="func
-                 ">
+            <li class="func active">
                 <a href={% url 'download' %}><b>Download</b></a>
 
             </li>
-            <li class="func
-                 ">
-                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
-
+            <li class="func">
+                <a href={% url 'about' %}><b>About</b></a>
             </li>
 
         </ul>
     </div>
     <!-- search -->
-    <div id="content2">
+    <div id="content2" style="border-radius: 20px;margin-top: 5px">
         <div class="welcome">
             <div class="" style="text-align:justify;font-size: 23px;">
                 &nbsp;&nbsp;Welcome to use circR2Cancer. In order to provide the necessary assistance to the relevant
@@ -138,6 +135,7 @@
             </table>
 
         </div>
+        <div style="width: 100%;height: 50px"></div>
     </div>
     <div id="footer">
         <p>Maintained by

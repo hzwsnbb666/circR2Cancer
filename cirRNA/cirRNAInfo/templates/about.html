@@ -15,42 +15,39 @@
     </script>
 
 
-    <title>Welcome to CirRNA</title>
+    <title>About</title>
 </head>
-<body ondragstart="false">
+<body>
 <div id="wrap">
+    <div style="margin-top: 3%"></div>
     <div id="header">
+        <div style="float:left;width: 100%;"><img id="header_image" src="../static/img/GXU2.png">
+        </div>
     </div>
     <div id="navi">
         <ul id="coolMenu">
-            <li class="func
-
-                    "><a onclick="" href={% url 'index' %}><b>Home</b></a></li>
-            <li class="func
-                                ">
+            <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func">
                 <a href={% url 'browse' %}><b>Browse</b></a>
 
             </li>
-            <li class="func active">
+            <li class="func">
                 <a href={% url 'search' %}><b>Search</b></a>
 
             </li>
 
-            <li class="func
-                 ">
+            <li class="func">
                 <a href={% url 'download' %}><b>Download</b></a>
 
             </li>
-            <li class="func
-                 ">
-                <a style="margin-left: 75px" href={% url 'about' %}><b>About</b></a>
-
+            <li class="func active">
+                <a href={% url 'about' %}><b>About</b></a>
             </li>
 
         </ul>
     </div>
     <!-- search -->
-    <div id="content2">
+    <div id="content" style="margin-top:5px;border-radius: 20px;height: auto;">
         <div class="welcome">
             <div class="" style="word-wrap: break-word;text-align: justify">
                 &nbsp;&nbsp;Welcome to use circR2Cancer, which provides a large number of circRNA-cancer
@@ -81,21 +78,22 @@
 
             <h3 style="color: #5bc0de"> 2. Browse </h3>
             <div class="" style="word-wrap: break-word;text-align: justify">
-                &nbsp;&nbsp;The circR2Cancer database contains three types of relational data: circRNA-cancer associations,
+                &nbsp;&nbsp;The circR2Cancer database contains three types of relational data: circRNA-cancer
+                associations,
                 miRNA-cancer associations and circRNA-miRNA associations. Each relational data will be presented to
                 users as a table. What’ more, users could gain detailed information about circRNA, miRNA and cancer.
             </div>
             <div>
-                <img src="../static/img/browse.png">
+                <img src="../static/img/browse.png" style="width: 100%">
             </div>
             <br>
             <h3 style="color: #5bc0de"> 3. Download </h3>
             <div class="" style="word-wrap: break-word;text-align: justify">
-                &nbsp &nbsp In order to facilitate user capture and utilize relational data, we store the three
+                &nbsp;&nbsp;In order to facilitate user capture and utilize relational data, we store the three
                 kinds of relational data in the form of EXCEL, please click to download if necessary.
             </div>
             <div>
-                <img src="../static/img/download.png">
+                <img src="../static/img/download.png" style="width: 100%">
             </div>
             <br>
             <h3 style="color: #5bc0de"> 4. Contact us </h3>
@@ -108,6 +106,7 @@
                 </p>
             </div>
         </div>
+        <div style="width: 100%;height: 50px"></div>
     </div>
 
 

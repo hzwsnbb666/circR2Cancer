@@ -2,13 +2,22 @@ html, body {
 
     margin: 0px;
     padding: 0px;
+    height: auto;
+    zoom: 0.85;
+    background: rgba(215, 215, 215, 0.48);
+    background-attachment: fixed
+}
+
+#header_image {
+    width: auto;
+    height: 90px;
 }
 
 #wrap {
     width: 1200px;
     margin: 0 auto;
     background: white;
-    height: 200px;
+    height: auto;
     /*box-shadow: 3px 3px 12px 9px #dfdcdc;*/
 }
 
@@ -59,12 +68,13 @@ html, body {
 .plant_disc a {
     color: #3e3e3e;
 }
-a > b{
+
+a > b {
     font-size: 25px;
 }
+
 .plant_name p {
     font-size: 16px;
-    color: #000;
     background: rgba(49, 69, 31, 0.77);
     border: 1px solid #e1e1e1;
     border-radius: 5px;
@@ -72,24 +82,27 @@ a > b{
     color: white;
     text-align: center;
     margin-right: 8px;
+
 }
 
 #content {
+    margin-top: 10px;
     width: 1200px;
-    min-height: 800px;
+    min-height: auto;
     float: left;
     background: white;
+    border-radius: 20px;
     /*border-radius: 5px;*/
 }
 
 #content2 {
     display: block;
     width: 1200px;
-    height: 1000px;
-    margin-top: 5px;
+    height: auto;
     float: left;
     position: relative;
     background: white;
+    border-radius: 20px;
     /*overflow: auto;*/
 }
 
@@ -102,10 +115,11 @@ a > b{
 }
 
 #footer {
-    width: 1000px;
+    width: 100%;
+    height: 30%;
     float: left;
     color: #666666;
-    margin-bottom: 15px;
+    margin-bottom: 100px;
     margin-top: 30px;
     text-align: center;
     font-family: arial, verdana, sans-serif;
@@ -117,15 +131,55 @@ a > b{
     font-size: 14px;
 }
 
-
-
 .func {
+    display: block;
     float: left;
-    margin-left: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .func a {
-    font-size: 20px;
+    color: gray;
+    display: block;
+    float: left;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+.func a:hover {
+    color: #5bc0de;
+}
+
+.func div a {
+    color: gray;
+    display: block;
+    float: left;
+    font-size: 30px;
+    border-radius: 5px;
+}
+
+
+
+.func div a:hover {
+    color: #5bc0de;
+}
+
+.active a {
+    color: #5bc0de;
+    text-decoration: underline;
+}
+
+.active a:hover {
+    color: #5bc0de;
+}
+
+.active div a {
+    color: #5bc0de;
+    text-decoration: underline;
+}
+
+.active div a:hover {
+    color: #5bc0de;
 }
 
 .addi {
@@ -133,7 +187,7 @@ a > b{
     /*margin-left:5px;*/
 }
 
-.activeli > a {
+.active li > a {
     /*background-color:#0000A0;*/
     color: #fff;
     font-style: italic;
@@ -143,12 +197,11 @@ a > b{
 #header {
     position: relative;
     width: 1200px;
-    height: 123px;
+    height: 90px;
     float: left;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0px;
-    background: url("../img/logo1.png") no-repeat;
     background-position: center center;
 
 }
@@ -164,22 +217,24 @@ a > b{
 }
 
 #navi {
-    background:lightgray;
+    background: white;
     position: relative;
-    width: 1200px;
+    width: 100%;
     float: left;
     margin-left: auto;
     margin-right: auto;
     min-height: 77px;
-    margin-top: 0px;
+    margin-top: 30px;
+    border-radius: 20px;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-a:visited{
+a:visited {
 }
+
 a.external {
     padding-right: 13px;
 
@@ -272,19 +327,11 @@ a.external {
     height: 15px;
 }
 
-#coolMenu li {
-    width: 85px;
-    text-align: left;
-    display: inline;
-}
-
-#coolMenu li a {
-    display: block;
-    /*height: 2em;*/
-    /*line-height: 2em;
-    /*padding: 0 1.5em;*/
-    text-decoration: none;
-}
+/*#coolMenu li {*/
+    /*width: auto;*/
+    /*text-align: left;*/
+    /*display: inline;*/
+/*}*/
 
 #coolMenu li a.last {
     border-left: none;
@@ -307,15 +354,17 @@ a.external {
     /*font-family: Arial;*/
     font-family: arial, verdana, sans-serif;
     font-size: 14px;
-    margin-left: 200px;
-    margin-top:12px;
+    margin-left: 240px;
+    margin-right: 235px;
+    margin-top: 12px;
+
     /* background: #2a67eb;*/
 }
 
-#coolMenu > li > a {
-    color: #585656;
-    /*font-weight: bold;*/
-}
+/*#coolMenu > li > a {*/
+/*color: #585656;*/
+/*!*font-weight: bold;*!*/
+/*}*/
 
 #coolMenu > li:hover > a {
     /*background: #0000A0;*/
@@ -954,6 +1003,7 @@ ul {
     width: 90%;
     height: 150px;
 }
+
 .on {
     width: 90%;
     height: 150px;
@@ -969,6 +1019,7 @@ ul {
     display: block;
     font-size: 20px;
     margin-left: 10px;
+    margin-right: 10px;
     margin-top: 25px;
 }
 
