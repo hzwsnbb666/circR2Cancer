@@ -25,7 +25,7 @@ SECRET_KEY = '#v7*efytk74!w)74=1curx&5_9w)9htev=02pb6_n8c2b^8wma'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'cirrna',
         'USER':'root',
 
-        'PASSWORD':'12345s',
+        'PASSWORD':'123456',
         'HOST':'127.0.0.1',
         'PORT':'3306',
 

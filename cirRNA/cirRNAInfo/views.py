@@ -1,16 +1,17 @@
 #coding=utf-8
-from django.shortcuts import render
-from .models import disease,cirrna,relationship,circRNA_cancer,cancer_info,circRNA_miRNA,miRNA_cancer,miRNA_info,circrna_info
+from urllib import parse
+
+import matplotlib.pyplot as plt
+import networkx as nx
+import pymysql
 from django.http import Http404
 from django.http import HttpResponse
-from django.apps import apps
-from json import *
-import json
-import pymysql
-from django.core import serializers
-from urllib import parse
-import networkx as nx
-import matplotlib.pyplot as plt
+from django.shortcuts import render
+
+from .models import disease, cirrna, relationship, circRNA_cancer, cancer_info, circRNA_miRNA, miRNA_cancer, miRNA_info, \
+    circrna_info
+
+
 #主页
 def index(request):
 
@@ -42,7 +43,7 @@ def detail(request):
     for k in range(1,lens):
         if (List[k] == "" or List[k] == None):
             List[k]="N/A"
-    db = pymysql.connect("localhost","root","12345s","cirrna")
+    db = pymysql.connect("localhost","root","123456","cirrna")
     cursor = db.cursor()
     if(List[0]== '1'):
         dict1={}
@@ -257,7 +258,7 @@ def search(request):
     search_type = request.GET.get("search-type")
 
     search_content = request.GET.get("search-content")
-    db = pymysql.connect("localhost","root","12345s","cirrna")
+    db = pymysql.connect("localhost","root","123456","cirrna")
     cursor = db.cursor()
     if search_content != None:
         search_content = search_content.strip()
@@ -605,7 +606,7 @@ def drawfigure(request):
         t1.rstrip()
         t2.rstrip()
         t3.rstrip()
-        conn = pymysql.connect("localhost", "root", "12345s", "cirrna")
+        conn = pymysql.connect("localhost", "root", "123456", "cirrna")
         cursor1 = conn.cursor()
         cursor2= conn.cursor()
         cursor3 = conn.cursor()
