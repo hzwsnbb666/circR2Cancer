@@ -102,7 +102,7 @@
                                 <td>{{ cir.circRNA }}</td>
                                 <td>{{ cir.disease }}</td>
                                 <td><a style="color: #5bc0de"
-                                       href="http://47.97.26.170:8000/detail?value=1&{{ cir.circRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.functional_describution }}">detail</a>
+                                       href="http://127.0.0.1:8000/detail?value=1&{{ cir.circRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.functional_describution }}">detail</a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -157,7 +157,7 @@
                                 <td>{{ cir.circRNA }}</td>
                                 <td>{{ cir.miRNA }}</td>
                                 <td><a style="color: #5bc0de"
-                                       href="http://47.97.26.170:8000/detail?value=2&{{ cir.circRNA }}&{{ cir.miRNA }}">detail</a>
+                                       href="http://127.0.0.1:8000/detail?value=2&{{ cir.circRNA }}&{{ cir.miRNA }}">detail</a>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -208,7 +208,7 @@
                                 <td>{{ cir.disease }}</td>
 
                                 <td><a style="color: #5bc0de;"
-                                       href="http://47.97.26.170:8000/detail?value=3&{{ cir.miRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.description }}">detail</a>
+                                       href="http://127.0.0.1:8000/detail?value=3&{{ cir.miRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.description }}">detail</a>
                                 </td>
 
                             </tr>
@@ -266,7 +266,7 @@
         {% endif %}
     </div>
     <div id="footer">
-        <p>Maintained by
+        <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
         </p>
     </div>

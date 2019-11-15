@@ -11,7 +11,7 @@
 
     <script src="../static/js/bootstrap-table.min.js"></script>
     <script src="../static/js/bootstrap-table-pagejump.js"></script>
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
     <link rel="stylesheet" href="../static/css/bootstrap-table.min.css">
     <link href="../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/download.css">
@@ -39,7 +39,7 @@
             display: none;
             position: absolute;
             background-color: #f9f9f9;
-            min-width: 142px;
+            min-width: 180px;
             box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
         }
 
@@ -147,7 +147,7 @@
                         <td>{{ cir.circRNA }}</td>
                         <td>{{ cir.disease }}</td>
                         <td><a style="color: #5bc0de;" target="_blank"
-                               href="http://47.97.26.170:8000/detail?value=1&{{ cir.circRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.functional_describution }}">detail</a>
+                               href="http://127.0.0.1:8000/detail?value=1&{{ cir.circRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.functional_describution }}">detail</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -195,7 +195,7 @@
                         <td>{{ cir.circRNA }}</td>
                         <td>{{ cir.miRNA }}</td>
                         <td><a style="color: #5bc0de" target="_blank"
-                               href="http://47.97.26.170:8000/detail?value=2&{{ cir.circRNA }}&{{ cir.miRNA }}">detail</a>
+                               href="http://127.0.0.1:8000/detail?value=2&{{ cir.circRNA }}&{{ cir.miRNA }}">detail</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -243,7 +243,7 @@
                         <td>{{ cir.disease }}</td>
 
                         <td><a style="color: #5bc0de;" target="_blank"
-                               href="http://47.97.26.170:8000/detail?value=3&{{ cir.miRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.description }}">detail</a>
+                               href="http://127.0.0.1:8000/detail?value=3&{{ cir.miRNA }}&{{ cir.disease }}&{{ cir.pmid }}&{{ cir.description }}">detail</a>
                         </td>
 
                     </tr>
@@ -280,7 +280,7 @@
     </div>
 
     <div id="footer">
-        <p>Maintained by
+        <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
         </p>
     </div>

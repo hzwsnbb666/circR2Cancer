@@ -1,7 +1,7 @@
 import xlrd
 import pymysql
 #打开数据所在的工作簿，以及选择存有数据的工作表
-book = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\circR2Cancer\Table\MiRNA信息.xlsx")
+book = xlrd.open_workbook(r"C:\Users\Administrator\Desktop\circR2Cancer\Table\miRNA_info.xlsx")
 sheet = book.sheet_by_name("miRNA-info")
 #建立一个MySQL连接
 conn = pymysql.connect(
