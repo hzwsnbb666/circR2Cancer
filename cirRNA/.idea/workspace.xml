@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ecc16ebd-b227-4aae-8b4e-3f3bd6f82093" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../DataHandle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../DataHandle/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cirRNAInfo/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cirRNAInfo/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/templates/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cirRNAInfo/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cirRNAInfo/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cirRNAInfo/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/templates/detail.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
