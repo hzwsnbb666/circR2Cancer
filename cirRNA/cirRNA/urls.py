@@ -17,21 +17,27 @@ from django.conf.urls import url
 from django.contrib import admin
 from cirRNAInfo import views
 
-
 urlpatterns = [
 
-    url(r'^admin/', admin.site.urls ),
+    url(r'^admin/', admin.site.urls),
 
-    url(r'^$',views.index,name="index"),
+    url(r'^$', views.index, name="index"),
     url(r'^index/$', views.index, name="index"),
 
-    url(r'^browse/', views.browse, name="browse"),
-    url(r'^detail/',views.detail,name="detail"),
+    url(r'^browse/$', views.browse, name="browse"),
+    url(r'^browse/circRNA_Cancer', views.browse, name="circRNA_Cancer"),
+    url(r'^browse/circRNA_miRNA', views.browse2, name="circRNA_miRNA"),
+    url(r'^browse/miRNA_Cancer', views.browse3, name="miRNA_Cancer"),
+
+    url(r'^detail/', views.detail, name="detail"),
 
     url(r'^download/', views.download, name="download"),
 
     url(r'^search/', views.search, name="search"),
     # url(r'^search2',views.search2,name="search2"),
+    url(r'^all/', views.all, name="all"),
+    url(r'^all2/', views.all2, name="all2"),
+    url(r'^all3/', views.all3, name="all3"),
 
     url(r'^about/', views.about, name="about"),
 

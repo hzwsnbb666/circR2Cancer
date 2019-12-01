@@ -1,0 +1,188 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <script src="../../static/js/jquery-latest.js"></script>
+    <script src="../../static/js/propper.min.js"></script>
+    <script src="../../static/js/bootstrap.min.js"></script>
+
+    <script src="../../static/js/bootstrap-table.min.js"></script>
+    <script src="../../static/js/bootstrap-table-pagejump.js"></script>
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap-table.min.css">
+    <link href="../../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../static/css/download.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/mycss.css">
+    <style>
+        .dropbtn {
+            background-color: #82b13a;
+            color: white;
+            padding: 16px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            border-radius: 10px;
+        }
+
+        .dropdown-content {
+            margin-top: 50%;
+            z-index: 5;
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 180px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #82b13a;
+        }
+        td{
+
+        }
+    </style>
+    <title>Browse</title>
+</head>
+<body>
+<div id="wrap">
+    <div style="margin-top: 3%"></div>
+    <div id="header">
+        <div style="float:left;width: 100%;"><img id="header_image" src="../../static/img/GXU2.png">
+        </div>
+    </div>
+    <div id="navi">
+        <ul id="coolMenu">
+            <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
+            <li class="func active">
+                <div class="dropdown">
+                    <a href="{% url 'browse' %}"><b>Browse</b></a>
+                    <div class="dropdown-content">
+                        <a style="width:100%;font-size: 15px" id="1" onclick="selectType()">circRNA-Cancer</a>
+                        <a style="width:100%;font-size: 15px" id="2" onclick="selectType()">circRNA-miRNA</a>
+                        <a style="width:100%;font-size: 15px" id="3" onclick="selectType()">miRNA-Cancer</a>
+                        <script type="text/javascript">
+                            function selectType() {
+                                var pid = event.currentTarget.id;
+                                switch (pid) {
+                                    case '1':
+                                        window.location.href = 'http://127.0.0.1:8000/browse/circRNA_Cancer';
+                                        break;
+                                    case '2':
+                                        window.location.href = 'http://127.0.0.1:8000/browse/circRNA_miRNA';
+                                        break;
+                                    case '3':
+                                        window.location.href = 'http://127.0.0.1:8000/browse/miRNA_Cancer';
+                                        break;
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+
+            </li>
+            <li class="func">
+                <a href={% url 'search' %}><b>Search</b></a>
+            </li>
+            <li class="func">
+                <a href={% url 'download' %}><b>Download</b></a>
+
+            </li>
+            <li class="func">
+                <a href={% url 'about' %}><b>About</b></a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- search -->
+    <div id="content2" style="margin-top: 5px;border-radius:20px;">
+        <br>
+
+        <div id="table1" class="database-content1">
+            <h3 style="color:black;font-size:1.75rem;font-family:inherit;margin-top: -20px"><b>miRNA-Cancer</b></h3>
+            <table class="table database-table" data-toggle="table" id="database-table1">
+
+            </table>
+            <script type="text/javascript">
+                //没有请求,自己写50条数据
+                $('#database-table1').bootstrapTable('destroy').bootstrapTable({
+                    url: '/all3',
+                    method: 'GET',
+                    dataType: "json",
+                    uniqueId: 'id',
+                    pagination: true,
+                    striped: false,
+                    cache: false,
+                    pageSize: 10,
+                    pageNumber: 1,
+                    paginationShowPageGo: true,
+                    pageList: [5, 10, 20, 30],
+                    sidePagination: 'server',
+                    paginationFirstText: "first page",
+                    paginationPreText: "previous page",
+                    paginationNextText: "next page",
+                    paginationLastText: "last page",
+                    iconSize: 'pager',
+                    queryType: "json",
+                    queryParams: function (params) {
+                        var temp = {
+                            rows: params.limit,
+                            page: (params.offset / params.limit) + 1,
+                        };
+                        return temp;
+                    },
+                    columns: [
+                        {
+                            field: "miRNA",
+                            title: "miRNA",
+                            align: "center",
+                            valign: "middle",
+                            sortable: "true"
+                        },
+
+                        {field: "Cancer", title: "Cancer", align: "center", valign: "middle", sortable: "true"},
+                        {field: "detail", title: "Detail", align: "center", valign: "middle", sortable: "true"},
+                    ],
+
+                });
+            </script>
+        </div>
+        <div style="width: 100%;height: 50px"></div>
+    </div>
+
+    <div id="footer">
+        <p style="font-size: 18px">Maintained by
+            <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
+        </p>
+        <p style="font-size: 18px">
+            ICP:桂ICP备19011548号-1
+        </p>
+    </div>
+
+</div>
+</body>
+</html>
