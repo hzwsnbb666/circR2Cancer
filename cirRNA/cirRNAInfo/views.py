@@ -280,7 +280,7 @@ def all(request):
     data = {"total": total, "rows": rows}
     for circrna_cancer in circrna_cancers:
         rows.append({'circRNA': circrna_cancer.circRNA, 'disease': circrna_cancer.disease,
-                     'detail': '<a style="color: #5bc0de;" target="_blank" href="http://127.0.0.1:8000/detail?value=1&' + circrna_cancer.circRNA + '&' + circrna_cancer.disease + '&' + circrna_cancer.pmid + '&' + circrna_cancer.functional_describution + '">detail</a>'})
+                     'detail': '<a style="color: #5bc0de;" target="_blank" href="http://www.biobdlab.cn:8000/detail?value=1&' + circrna_cancer.circRNA + '&' + circrna_cancer.disease + '&' + circrna_cancer.pmid + '&' + circrna_cancer.functional_describution + '">detail</a>'})
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
@@ -296,7 +296,7 @@ def all2(request):
     data = {"total": total, "rows": rows}
     for circrna_mirna in circrna_mirnas:
         rows.append({'circRNA': circrna_mirna.circRNA, 'miRNA': circrna_mirna.miRNA,
-                     'detail': '<a style="color: #5bc0de;" target="_blank" href="http://127.0.0.1:8000/detail?value=2&' + circrna_mirna.circRNA + '&' + circrna_mirna.miRNA + '">detail</a>'})
+                     'detail': '<a style="color: #5bc0de;" target="_blank" href="http://www.biobdlab.cn:8000/detail?value=2&' + circrna_mirna.circRNA + '&' + circrna_mirna.miRNA + '">detail</a>'})
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
@@ -311,7 +311,7 @@ def all3(request):
     data = {"total": total, "rows": rows}
     for mirna_cancer in mirna_cancers:
         rows.append({'miRNA': mirna_cancer.miRNA, 'Cancer': mirna_cancer.disease,
-                     'detail': '<a style="color: #5bc0de;" target="_blank" href="http://127.0.0.1:8000/detail?value=3&' + mirna_cancer.miRNA + '&' + mirna_cancer.disease +'&'+mirna_cancer.pmid+ '&'+mirna_cancer.description+'&'+'">detail</a>'})
+                     'detail': '<a style="color: #5bc0de;" target="_blank" href="http://www.biobdlab.cn:8000/detail?value=3&' + mirna_cancer.miRNA + '&' + mirna_cancer.disease +'&'+mirna_cancer.pmid+ '&'+mirna_cancer.description+'&'+'">detail</a>'})
 
     return HttpResponse(json.dumps(data), content_type="application/json")
 
