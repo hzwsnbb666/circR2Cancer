@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ecc16ebd-b227-4aae-8b4e-3f3bd6f82093" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/cirRNAInfo/static/table/Cancer_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/static/table/Cancer_info.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cirRNAInfo/static/table/circRNA-miRNA.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/static/table/circRNA-miRNA.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cirRNAInfo/static/table/circRNA_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/static/table/circRNA_info.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cirRNAInfo/static/table/miRNA_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/cirRNAInfo/static/table/miRNA_info.xlsx" afterDir="false" />
+=======
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +42,7 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+<<<<<<< Updated upstream
   <component name="FUSProjectUsageTrigger">
     <session id="189223346">
       <usages-collector id="statistics.lifecycle.project">
@@ -112,6 +116,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -144,41 +150,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/cirRNA/settings.py" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/static/js/jquery-latest.js" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/browse/circRNACancer.html" />
-        <option value="$PROJECT_DIR$/cirRNA/urls.py" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/static/css/download.css" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/static/css/jquery.lightbox-0.5.css" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/static/js/jquery.lightbox-0.5.js" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/browse/circRNA_Cancer.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/browse/circRNA_miRNA.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/browse/miRNA_Cancer.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/about.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/browse.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/detail.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/download.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/index.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/templates/search.html" />
-        <option value="$PROJECT_DIR$/cirRNAInfo/views.py" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="63" />
-    <option name="y" value="-6" />
-    <option name="width" value="1305" />
-    <option name="height" value="774" />
-  </component>
   <component name="ProjectId" id="1TKXE4yAgBwr011CXTA4BG4PSsK" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -195,6 +166,7 @@
     </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+<<<<<<< Updated upstream
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <autoscrollFromSource ProjectPane="true" />
@@ -278,6 +250,8 @@
       <pane id="Scope" />
     </panes>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -470,10 +444,12 @@
       <workItem from="1573287538044" duration="1229000" />
       <workItem from="1573289424577" duration="5476000" />
       <workItem from="1573300803563" duration="6115000" />
+      <workItem from="1575261138689" duration="241000" />
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+<<<<<<< Updated upstream
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
@@ -501,6 +477,8 @@
       <window_info anchor="right" id="SciView" order="4" />
     </layout>
   </component>
+=======
+>>>>>>> Stashed changes
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -510,12 +488,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -523,14 +495,12 @@
       </map>
     </option>
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cirRNA$circrna_mirna.coverage" NAME="circrna_mirna Coverage Results" MODIFIED="1560702894523" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/pycharm/dataresolve" />
     <SUITE FILE_PATH="coverage/cirRNA$manage.coverage" NAME="manage Coverage Results" MODIFIED="1561022703933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/cirRNA$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1561022669417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
+<<<<<<< Updated upstream
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cirRNAInfo/models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -670,4 +640,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> Stashed changes
 </project>
