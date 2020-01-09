@@ -25,9 +25,9 @@ urlpatterns = [
     url(r'^index/$', views.index, name="index"),
 
     url(r'^browse/$', views.browse, name="browse"),
-    url(r'^browse/circRNA_Cancer', views.browse, name="circRNA_Cancer"),
-    url(r'^browse/circRNA_miRNA', views.browse2, name="circRNA_miRNA"),
-    url(r'^browse/miRNA_Cancer', views.browse3, name="miRNA_Cancer"),
+    url(r'^browse/circRNA-Cancer', views.browse, name="circRNA-Cancer"),
+    url(r'^browse/circRNA-miRNA', views.browse2, name="circRNA-miRNA"),
+    url(r'^browse/miRNA-Cancer', views.browse3, name="miRNA-Cancer"),
 
     url(r'^detail/', views.detail, name="detail"),
 
