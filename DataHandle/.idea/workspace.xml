@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d38c06dc-e8b6-4171-8bd8-d44f9238ebe7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA-Cancer.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/miRNA-Cancer.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/circrna_cancer.py" beforeDir="false" afterPath="$PROJECT_DIR$/circrna_cancer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNA/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNA/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse/circRNA_Cancer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse/circRNA_Cancer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse/circRNA_miRNA.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse/circRNA_miRNA.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse/miRNA_Cancer.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/browse/miRNA_Cancer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/download.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/download.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/Cancer_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/Cancer_info.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA-miRNA.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA-miRNA.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA_info.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circrna-cancer.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/miRNA_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/miRNA_info.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/mirna-cancer.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -204,6 +201,7 @@
       <workItem from="1573216878766" duration="3038000" />
       <workItem from="1573285088064" duration="1368000" />
       <workItem from="1578583100119" duration="2381000" />
+      <workItem from="1578662362123" duration="612000" />
     </task>
     <servers />
   </component>
