@@ -365,7 +365,7 @@ def search(request):
             dict1 = {}
             dict1['circRNA'] = item[1]
             dict1['disease'] = item[2]
-            dict1['pmid'] = item[3]
+            dict1['pmid'] = item[13]
             dict1['functional_describution'] = item[4]
             circrna_cancer.append(dict1)
         cursor.execute("select * from cirrnainfo_circrna_mirna where circRNA='" + search_content + "';")
@@ -407,7 +407,7 @@ def search(request):
             dict1 = {}
             dict1['circRNA'] = item[1]
             dict1['disease'] = item[2]
-            dict1['pmid'] = item[3]
+            dict1['pmid'] = item[13]
             dict1['functional_describution'] = item[4]
             circrna_cancer.append(dict1)
         cursor.execute("select * from cirrnainfo_mirna_cancer where disease='" + search_content + "';")
