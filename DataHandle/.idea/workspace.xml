@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d38c06dc-e8b6-4171-8bd8-d44f9238ebe7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA-Cancer.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/miRNA-Cancer.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/Cancer_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/Cancer_info.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA-miRNA.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA-miRNA.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circRNA_info.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/circrna-cancer.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/miRNA_info.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/miRNA_info.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cirRNA/cirRNAInfo/static/table/mirna-cancer.xlsx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -336,9 +336,14 @@ def search(request):
     search_content = request.GET.get("search-content")
     db = pymysql.connect("localhost", "root", "123456", "cirrna")
     cursor = db.cursor()
+    flag = 0
     if search_content != None:
         search_content = search_content.strip()
-        if search_content == '' or " " in search_content or "\t" in search_content:
+        for item in search_content:
+            if item != ' ' and item != '\t':
+                flag = 1
+                break
+        if search_content == '' or flag == 0:
             return render(request, 'search.html',
                           {'flag1': 'no', 'circrna_cancer': circrna_cancer, 'circrna_mirna': circrna_mirna,
                            'mirna_cancer': mirna_cancer,
