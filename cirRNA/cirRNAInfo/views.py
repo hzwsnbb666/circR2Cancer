@@ -275,7 +275,7 @@ def all(request):
         pageNumber = int(request.GET.get('page'))
 
     total = circRNA_cancer.objects.all().count()
-    circrna_cancers = circRNA_cancer.objects.order_by('-id')[(pageNumber - 1) * pageSize:(pageNumber) * pageSize]
+    circrna_cancers = circRNA_cancer.objects.order_by('id')[(pageNumber - 1) * pageSize:(pageNumber) * pageSize]
     rows = []
     data = {"total": total, "rows": rows}
     for circrna_cancer in circrna_cancers:
@@ -291,7 +291,7 @@ def all2(request):
         pageNumber = int(request.GET.get('page'))
 
     total = circRNA_miRNA.objects.all().count()
-    circrna_mirnas = circRNA_miRNA.objects.order_by('-id')[(pageNumber - 1) * pageSize:(pageNumber) * pageSize]
+    circrna_mirnas = circRNA_miRNA.objects.order_by('id')[(pageNumber - 1) * pageSize:(pageNumber) * pageSize]
     rows = []
     data = {"total": total, "rows": rows}
     for circrna_mirna in circrna_mirnas:
@@ -306,7 +306,7 @@ def all3(request):
         pageNumber = int(request.GET.get('page'))
 
     total = miRNA_cancer.objects.all().count()
-    mirna_cancers = miRNA_cancer.objects.order_by('-id')[(pageNumber - 1) * pageSize:(pageNumber) * pageSize]
+    mirna_cancers = miRNA_cancer.objects.order_by('id')[(pageNumber - 1) * pageSize:(pageNumber) * pageSize]
     rows = []
     data = {"total": total, "rows": rows}
     for mirna_cancer in mirna_cancers:
