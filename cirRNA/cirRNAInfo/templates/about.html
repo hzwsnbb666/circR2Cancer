@@ -80,7 +80,7 @@
             <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
             <li class="func">
                 <div class="dropdown">
-                    <a href="http://www.biobdlab.cn:8000/browse/circRNA-Cancer"><b>Browse</b></a>
+                    <a href="http://www.biobdlab.cn/browse/circRNA-Cancer"><b>Browse</b></a>
                     <div class="dropdown-content">
                         <a style="width:100%;font-size: 15px" id="1" onclick="selectType()">circRNA-Cancer</a>
                         <a style="width:100%;font-size: 15px" id="2" onclick="selectType()">circRNA-miRNA</a>
@@ -89,9 +89,9 @@
                             function selectType() {
                                 var pid = event.currentTarget.id;
                                 switch (pid) {
-                                    case '1':window.location.href='http://www.biobdlab.cn:8000/browse/circRNA-Cancer';break;
-                                    case '2':window.location.href='http://www.biobdlab.cn:8000/browse/circRNA-miRNA';break;
-                                    case '3':window.location.href='http://www.biobdlab.cn:8000/browse/miRNA-Cancer';break;
+                                    case '1':window.location.href='http://www.biobdlab.cn/browse/circRNA-Cancer';break;
+                                    case '2':window.location.href='http://www.biobdlab.cn/browse/circRNA-miRNA';break;
+                                    case '3':window.location.href='http://www.biobdlab.cn/browse/miRNA-Cancer';break;
                                 }
                             }
                         </script>
@@ -182,9 +182,9 @@
         <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
         </p>
-        <p style="font-size: 18px">
+        <a href="http://www.beian.miit.gov.cn" style="font-size: 18px">
             ICP:桂ICP备19011548号-1
-        </p>
+        </a>
     </div>
 </div>
 </body>
