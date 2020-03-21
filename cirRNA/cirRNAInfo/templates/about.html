@@ -61,9 +61,10 @@
         .dropdown:hover .dropbtn {
             background-color: #82b13a;
         }
-        .td1{
-            word-wrap:break-word;
-            word-break:break-all;
+
+        .td1 {
+            word-wrap: break-word;
+            word-break: break-all;
         }
     </style>
     <title>About</title>
@@ -89,9 +90,15 @@
                             function selectType() {
                                 var pid = event.currentTarget.id;
                                 switch (pid) {
-                                    case '1':window.location.href='http://www.biobdlab.cn/browse/circRNA-Cancer';break;
-                                    case '2':window.location.href='http://www.biobdlab.cn/browse/circRNA-miRNA';break;
-                                    case '3':window.location.href='http://www.biobdlab.cn/browse/miRNA-Cancer';break;
+                                    case '1':
+                                        window.location.href = 'http://www.biobdlab.cn/browse/circRNA-Cancer';
+                                        break;
+                                    case '2':
+                                        window.location.href = 'http://www.biobdlab.cn/browse/circRNA-miRNA';
+                                        break;
+                                    case '3':
+                                        window.location.href = 'http://www.biobdlab.cn/browse/miRNA-Cancer';
+                                        break;
                                 }
                             }
                         </script>
@@ -103,7 +110,9 @@
                 <a href={% url 'search' %}><b>Search</b></a>
 
             </li>
-
+            <li class="func">
+                <a href={% url 'predicting' %}><b>Predicting</b></a>
+            </li>
             <li class="func">
                 <a href={% url 'download' %}><b>Download</b></a>
 

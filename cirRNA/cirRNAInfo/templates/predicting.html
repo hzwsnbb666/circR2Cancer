@@ -1,21 +1,16 @@
-{% load static %}
-
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
-    <script src="../../static/js/jquery-latest.js"></script>
-    <script src="../../static/js/propper.min.js"></script>
-    <script src="../../static/js/bootstrap.min.js"></script>
-
-    <script src="../../static/js/bootstrap-table.min.js"></script>
-    <script src="../../static/js/bootstrap-table-pagejump.js"></script>
-    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../static/css/bootstrap-table.min.css">
-    <link href="../../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../static/css/download.css">
-    <link rel="stylesheet" type="text/css" href="../../static/css/mycss.css">
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/download.css">
+    <link rel="shortcut icon" href="#"/>
+    <script src="../static/js/jquery-latest.js"></script>
+    <script src="../static/js/bootstrap-table.js"></script>
+    <script src="../static/js/browse.js"></script>
     <style>
         .dropbtn {
             background-color: #82b13a;
@@ -62,23 +57,25 @@
         .dropdown:hover .dropbtn {
             background-color: #82b13a;
         }
-        td{
 
+        .td1 {
+            word-wrap: break-word;
+            word-break: break-all;
         }
     </style>
-    <title>Browse</title>
 </head>
 <body>
 <div id="wrap">
     <div style="margin-top: 3%"></div>
     <div id="header">
-        <div style="float:left;width: 100%;"><img id="header_image" src="../../static/img/GXU2.png">
+        <div style="float:left;width: 100%;"><img id="header_image" src="../static/img/GXU2.png">
         </div>
+
     </div>
     <div id="navi">
         <ul id="coolMenu">
             <li class="func"><a href={% url 'index' %}><b>Home</b></a></li>
-            <li class="func active">
+            <li class="func">
                 <div class="dropdown">
                     <a href="http://www.biobdlab.cn/browse/circRNA-Cancer"><b>Browse</b></a>
                     <div class="dropdown-content">
@@ -107,6 +104,7 @@
             </li>
             <li class="func">
                 <a href={% url 'search' %}><b>Search</b></a>
+
             </li>
             <li class="func">
                 <a href={% url 'predicting' %}><b>Predicting</b></a>
@@ -121,62 +119,7 @@
 
         </ul>
     </div>
-    <!-- search -->
-    <div id="content2" style="margin-top: 5px;border-radius:20px;">
-        <br>
-
-        <div id="table1" class="database-content1">
-            <h3 style="color:black;font-size:1.75rem;font-family:inherit;margin-top: -20px"><b>miRNA-Cancer</b></h3>
-            <table class="table database-table" data-toggle="table" id="database-table1">
-
-            </table>
-            <script type="text/javascript">
-                //没有请求,自己写50条数据
-                $('#database-table1').bootstrapTable('destroy').bootstrapTable({
-                    url: '/all3',
-                    method: 'GET',
-                    dataType: "json",
-                    uniqueId: 'id',
-                    pagination: true,
-                    striped: false,
-                    cache: false,
-                    pageSize: 10,
-                    pageNumber: 1,
-                    paginationShowPageGo: true,
-                    pageList: [5, 10, 20, 30],
-                    sidePagination: 'server',
-                    paginationFirstText: "first page",
-                    paginationPreText: "previous page",
-                    paginationNextText: "next page",
-                    paginationLastText: "last page",
-                    iconSize: 'pager',
-                    queryType: "json",
-                    queryParams: function (params) {
-                        var temp = {
-                            rows: params.limit,
-                            page: (params.offset / params.limit) + 1,
-                        };
-                        return temp;
-                    },
-                    columns: [
-                        {
-                            field: "miRNA",
-                            title: "miRNA",
-                            align: "center",
-                            valign: "middle",
-                            sortable: false
-                        },
-
-                        {field: "Cancer", title: "Cancer", align: "center", valign: "middle", sortable: false},
-                        {field: "detail", title: "Detail", align: "center", valign: "middle", sortable: false},
-                    ],
-
-                });
-            </script>
-        </div>
-        <div style="width: 100%;height: 50px"></div>
-    </div>
-
+    <div id="content" style="min-height: 90px;margin-top: 5px"></div>
     <div id="footer">
         <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
@@ -185,7 +128,4 @@
             ICP:桂ICP备19011548号-1
         </a>
     </div>
-
 </div>
-</body>
-</html>

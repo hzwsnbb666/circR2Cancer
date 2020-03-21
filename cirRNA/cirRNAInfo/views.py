@@ -439,7 +439,7 @@ def about(request):
 
 # 预测
 def predicting(request):
-    return render(request,'search.html',{})
+    return render(request,'predicting.html',{})
 
 def getdisease(request, diseaseid):
     try:
