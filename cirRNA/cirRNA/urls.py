@@ -38,9 +38,8 @@ urlpatterns = [
     url(r'^all/', views.all, name="all"),
     url(r'^all2/', views.all2, name="all2"),
     url(r'^all3/', views.all3, name="all3"),
-
     url(r'^about/', views.about, name="about"),
-
+    url(r'^predicting/', views.predicting, name="predicting"),
     url(r'^getcirrna/(\d+)/$', views.getcirrna, name="getcirrna"),
 
     url(r'^getdisease/(\d+)/$', views.getdisease, name="getdisease"),

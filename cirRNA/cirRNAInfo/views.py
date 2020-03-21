@@ -437,6 +437,9 @@ def search(request):
 def about(request):
     return render(request, 'about.html', {})
 
+# 预测
+def predicting(request):
+    return render(request,'search.html',{})
 
 def getdisease(request, diseaseid):
     try:
