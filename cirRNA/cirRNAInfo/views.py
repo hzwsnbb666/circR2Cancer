@@ -325,20 +325,26 @@ def search(request):
     dict1 = {}
     dict2 = {}
     dict3 = {}
+
     circrna_cancer = []
     circrna_mirna = []
     mirna_cancer = []
     cir1 = "database-content2"
     cir2 = "database-content2"
     cir3 = "database-content2"
+    picFlag = "database-content2"
     search_type = request.GET.get("search-type")
 
     search_content = request.GET.get("search-content")
+
+    nodes  = []
+    links = []
     db = pymysql.connect("localhost", "root", "123456", "cirrna")
     cursor = db.cursor()
     flag = 0
     if search_content != None:
         search_content = search_content.strip()
+        picFlag = 'database-content1'
         for item in search_content:
             if item != ' ' and item != '\t':
                 flag = 1
@@ -368,6 +374,7 @@ def search(request):
             dict1['pmid'] = item[13]
             dict1['functional_describution'] = item[4]
             circrna_cancer.append(dict1)
+
         cursor.execute("select * from cirrnainfo_circrna_mirna where circRNA='" + search_content + "';")
         data1 = cursor.fetchall()
         for item in data1:
@@ -423,7 +430,7 @@ def search(request):
                   {'flag1': 'ok', 'circrna_cancer': circrna_cancer, 'circrna_mirna': circrna_mirna,
                    'mirna_cancer': mirna_cancer,
                    'Cir1': cir1, 'Cir2': cir2, 'Cir3': cir3, 'search_content': search_content,
-                   'search_type': search_type})
+                   'search_type': search_type,'picFlag':picFlag})
 
 
 # 关于
