@@ -40,20 +40,4 @@ urlpatterns = [
     url(r'^all3/', views.all3, name="all3"),
     url(r'^about/', views.about, name="about"),
     url(r'^predicting/', views.predicting, name="predicting"),
-    url(r'^getcirrna/(\d+)/$', views.getcirrna, name="getcirrna"),
-
-    url(r'^getdisease/(\d+)/$', views.getdisease, name="getdisease"),
-
-    url(r'^displaydisease/(.+)/$', views.displaydisease, name="displaydisease"),
-
-    url(r'^displaycirrna/(.+)/$', views.displaycirrna, name="displaycirrna"),
-
-    url(r'^displayiframe/$', views.displayiframe, name="displayiframe"),
-
-    url(r'^searchcirrna/(.+)/$', views.searchcirrna, name="searchcirrna"),
-
-    url(r'^searchdisease/(.+)/$', views.searchdisease, name="searchdisease"),
-
-    url(r'^drawfigure/', views.drawfigure, name="drawfigure")
-
 ]
