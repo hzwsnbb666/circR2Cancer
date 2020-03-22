@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d38c06dc-e8b6-4171-8bd8-d44f9238ebe7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cancer_info_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/cancer_info_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/circrna_cancer_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/circrna_cancer_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/circrna_info_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/circrna_info_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,8 +51,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.circrna_info_test">
-    <configuration name="circrna_cancer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.circrna_cancer_test">
+    <configuration name="cancer_info_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="data_handle" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -67,7 +65,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/circrna_cancer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cancer_info_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="circrna_cancer_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="data_handle" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/circrna_cancer_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -142,42 +162,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mirna_info" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="data_handle" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mirna_info.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.circrna_cancer" />
       <item itemvalue="Python.circrna_mirna" />
-      <item itemvalue="Python.mirna_info" />
       <item itemvalue="Python.mirna_cancer" />
       <item itemvalue="Python.circrna_info_test" />
+      <item itemvalue="Python.cancer_info_test" />
+      <item itemvalue="Python.circrna_cancer_test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.circrna_cancer_test" />
+        <item itemvalue="Python.cancer_info_test" />
         <item itemvalue="Python.circrna_info_test" />
         <item itemvalue="Python.mirna_cancer" />
         <item itemvalue="Python.circrna_mirna" />
-        <item itemvalue="Python.mirna_info" />
-        <item itemvalue="Python.circrna_cancer" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +197,7 @@
       <workItem from="1578757628711" duration="125000" />
       <workItem from="1578821135959" duration="384000" />
       <workItem from="1578821925763" duration="772000" />
-      <workItem from="1584849840486" duration="161000" />
+      <workItem from="1584849840486" duration="843000" />
     </task>
     <servers />
   </component>
@@ -226,9 +224,11 @@
     <SUITE FILE_PATH="coverage/DataHandle$circrna_cancer.coverage" NAME="circrna_cancer Coverage Results" MODIFIED="1578822545931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DataHandle$circrna_mirna.coverage" NAME="circrna_mirna Coverage Results" MODIFIED="1578822653509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DataHandle$circrna_info.coverage" NAME="circrna_info Coverage Results" MODIFIED="1578822476990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DataHandle$cancer_info_test.coverage" NAME="cancer_info_test Coverage Results" MODIFIED="1584853793720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DataHandle$mirna_info.coverage" NAME="mirna_info Coverage Results" MODIFIED="1578822581603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DataHandle$mirna_cancer.coverage" NAME="mirna_cancer Coverage Results" MODIFIED="1578822686404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DataHandle$circrna_cancer_test.coverage" NAME="circrna_cancer_test Coverage Results" MODIFIED="1584853805033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/DataHandle$cancer_info.coverage" NAME="cancer_info Coverage Results" MODIFIED="1578822391673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/DataHandle$circrna_info_test.coverage" NAME="circrna_info_test Coverage Results" MODIFIED="1584849920470" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/DataHandle$circrna_info_test.coverage" NAME="circrna_info_test Coverage Results" MODIFIED="1584853784642" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
