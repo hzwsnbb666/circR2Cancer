@@ -439,5 +439,11 @@ def about(request):
 
 # 预测
 def predicting(request):
-    return render(request,'predicting.html',{})
+    flag1 = "database-content1"
+    flag2 = "database-content1"
+
+    search_type = request.GET.get("search-type")
+    algrithom_type = request.GET.get("algrithom-type")
+    search_content = request.GET.get("search-content")
+    return render(request,'predicting.html',{'flag1':flag1,'flag2':flag2,'search_type':search_type,'search_content':search_content,'algrithom_type':algrithom_type})
 

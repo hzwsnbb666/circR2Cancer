@@ -12,6 +12,10 @@
     <script src="../static/js/bootstrap-table.js"></script>
     <script src="../static/js/browse.js"></script>
     <style>
+
+        select{
+            width: 150px;
+        }
         .dropbtn {
             background-color: #82b13a;
             color: white;
@@ -119,7 +123,80 @@
 
         </ul>
     </div>
-    <div id="content" style="min-height: 90px;margin-top: 5px"></div>
+    <div id="content" style="min-height: 90px;margin-top: 5px">
+        <br>
+        <form action="/predicting" method="get">
+            <b style="margin-left: 2%;font-size: 20px;color: gray">Type &nbsp;</b>
+            <select id="search-type" name="search-type" style="font-size: 20px">
+
+                {% if search_type == 'Cancer' %}
+                    <option>circRNA</option>
+                    <option selected="selected">Cancer</option>
+                {% else %}
+                    <option selected="selected">circRNA</option>
+                    <option>Cancer</option>
+                {% endif %}
+
+            </select>
+            <b style="margin-left: 2%;font-size: 20px;color: gray">Algrithom Type &nbsp;</b>
+
+            <select id="algrithom-type" name="algrithom-type" style="font-size: 20px">
+
+                {% if algrithom_type == 'NCPCDA' %}
+                    <option>RWR</option>
+                    <option>Least Square</option>
+                    <option>KATZHCDA</option>
+                    <option selected="selected">NCPCDA</option>
+                {% elif algrithom_type == 'KATZHCDA' %}
+                    <option>RWR</option>
+                    <option>Least Square</option>
+                    <option selected="selected">KATZHCDA</option>
+                    <option>NCPCDA</option>
+                {% elif algrithom_type == 'Least Square' %}
+                    <option>RWR</option>
+                    <option selected="selected">Least Square</option>
+                    <option>KATZHCDA</option>
+                    <option>NCPCDA</option>
+                {% else %}
+                    <option selected="selected">RWR</option>
+                    <option>Least Square</option>
+                    <option>KATZHCDA</option>
+                    <option>NCPCDA</option>
+                {% endif %}
+
+            </select>
+            <b style="font-size: 20px;margin-left: 2%;color: gray">Content&nbsp;&nbsp;
+            </b>
+            <input id="text" type="text" name="search-content" value="{{ search_content | default:'' }}"
+                   style="width: 200px;font-size: 20px"/>
+            <input type="button" onclick="myexample()" style="margin-left: 3%" value="Example">
+            <input type="submit" style="margin-left: 3%" value="Predicting">
+            <script>
+                function myexample() {
+                    var search_type = document.getElementById('search-type');
+                    var algrithom_type = document.getElementById('algrithom-type');
+                    var text = document.getElementById('text');
+                    if(search_type.value == 'circRNA'){
+                        text.value = 'circ-Foxo3';
+                    }
+                    else{
+                        text.value = 'breast cancer';
+                    }
+                    algrithom_type.value = 'RWR';
+                }
+            </script>
+        </form>
+    </div>
+    <div id="content">
+        <div class='{{ flag1 }}'>
+
+        </div>
+    </div>
+    <div id="content">
+        <div class='{{ flag2 }}'>
+
+        </div>
+    </div>
     <div id="footer">
         <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
