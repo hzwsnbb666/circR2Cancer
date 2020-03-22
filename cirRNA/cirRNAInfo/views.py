@@ -8,7 +8,7 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.shortcuts import render
 import json
-from .models import disease, cirrna, relationship, circRNA_cancer, cancer_info, circRNA_miRNA, miRNA_cancer, miRNA_info, \
+from .models import cancer_info_test, circrna_info_test,circRNA_cancer_test,circRNA_cancer, cancer_info, circRNA_miRNA, miRNA_cancer, miRNA_info, \
     circrna_info
 
 

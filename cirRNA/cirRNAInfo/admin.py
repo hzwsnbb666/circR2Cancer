@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import disease,cirrna
+from .models import cancer_info,circrna_info
  
  
-admin.site.register([disease,cirrna])
+admin.site.register([cancer_info,circrna_info])
 # Register your models here.
