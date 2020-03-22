@@ -339,7 +339,7 @@ a.external {
 
 #coolMenu ul {
     position: absolute;
-    display: none;
+    /*display: none;*/
     z-index: 999;
 }
 
@@ -355,7 +355,7 @@ a.external {
     font-family: arial, verdana, sans-serif;
     font-size: 14px;
     display: inline-block;
-    overflow: auto;
+    /*overflow: auto;*/
     margin-top: 12px;
     text-align: center;
 
@@ -997,7 +997,7 @@ div#adarea {
 
 ul {
     display: block;
-    list-style-type: none;
+    /*list-style-type: none;*/
 }
 
 .off {

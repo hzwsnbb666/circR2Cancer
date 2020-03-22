@@ -14,8 +14,8 @@
 
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/bootstrap-table.min.css">
-    <link rel="stylesheet" type="text/css" href="../static/css/download.css">
     <link href="../static/css/bootstrap-table-pagejump.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../static/css/download.css">
     <link rel="stylesheet" type="text/css" href="../static/css/mycss.css">
     <link rel="shortcut icon" href="#"/>
     <title>Download</title>
@@ -65,13 +65,13 @@
         .dropdown:hover .dropbtn {
             background-color: #82b13a;
         }
-        .td1{
-            word-wrap:break-word;
-            word-break:break-all;
+
+        .td1 {
+            word-wrap: break-word;
+            word-break: break-all;
         }
-        li{
-            list-style-type:disc;
-        }
+
+
     </style>
 
 </head>
@@ -96,9 +96,15 @@
                             function selectType() {
                                 var pid = event.currentTarget.id;
                                 switch (pid) {
-                                    case '1':window.location.href='http://www.biobdlab.cn/browse/circRNA-Cancer';break;
-                                    case '2':window.location.href='http://www.biobdlab.cn/browse/circRNA-miRNA';break;
-                                    case '3':window.location.href='http://www.biobdlab.cn/browse/miRNA-Cancer';break;
+                                    case '1':
+                                        window.location.href = 'http://www.biobdlab.cn/browse/circRNA-Cancer';
+                                        break;
+                                    case '2':
+                                        window.location.href = 'http://www.biobdlab.cn/browse/circRNA-miRNA';
+                                        break;
+                                    case '3':
+                                        window.location.href = 'http://www.biobdlab.cn/browse/miRNA-Cancer';
+                                        break;
                                 }
                             }
                         </script>
@@ -210,7 +216,7 @@
         <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
         </p>
-          <a href="http://www.beian.miit.gov.cn" style="font-size: 18px">
+        <a href="http://www.beian.miit.gov.cn" style="font-size: 18px">
             ICP:桂ICP备19011548号-1
         </a>
     </div>
