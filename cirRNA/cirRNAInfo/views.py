@@ -344,7 +344,6 @@ def search(request):
     flag = 0
     if search_content != None:
         search_content = search_content.strip()
-        picFlag = 'database-content1'
         for item in search_content:
             if item != ' ' and item != '\t':
                 flag = 1
@@ -354,13 +353,14 @@ def search(request):
                           {'flag1': 'no', 'circrna_cancer': circrna_cancer, 'circrna_mirna': circrna_mirna,
                            'mirna_cancer': mirna_cancer,
                            'Cir1': cir1, 'Cir2': cir2, 'Cir3': cir3, 'search_content': search_content,
-                           'search_type': search_type})
+                           'search_type': search_type,'picFlag':picFlag})
         elif "$" in search_content or "'" in search_content or "%" in search_content or '"' in search_content or "@" in search_content or "+" in search_content or not search_content[0].isalpha():
             return render(request, 'search.html',
                           {'flag1': 'err', 'circrna_cancer': circrna_cancer, 'circrna_mirna': circrna_mirna,
                            'mirna_cancer': mirna_cancer,
                            'Cir1': cir1, 'Cir2': cir2, 'Cir3': cir3, 'search_content': search_content,
-                           'search_type': search_type})
+                           'search_type': search_type,'picFlag':picFlag})
+    picFlag = 'database-content1'
     if search_type == "circRNA":
         cir1 = "database-content1"
         cir2 = "database-content1"
@@ -439,11 +439,27 @@ def about(request):
 
 # 预测
 def predicting(request):
-    flag1 = "database-content1"
-    flag2 = "database-content1"
+    predictFlag = "database-content2"
+
 
     search_type = request.GET.get("search-type")
     algrithom_type = request.GET.get("algrithom-type")
     search_content = request.GET.get("search-content")
-    return render(request,'predicting.html',{'flag1':flag1,'flag2':flag2,'search_type':search_type,'search_content':search_content,'algrithom_type':algrithom_type})
+    flag = 0 #判断是错误信息还是空信息
+    if search_content != None:
+        search_content = search_content.strip()
+        for item in search_content:
+            if item != ' ' and item != '\t':
+                flag = 1
+                break
+        if search_content == '' or flag == 0:
+            return render(request, 'predicting.html',
+                          {'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
+                           'algrithom_type': algrithom_type,'flag':'no'})
+        elif "$" in search_content or "'" in search_content or "%" in search_content or '"' in search_content or "@" in search_content or "+" in search_content or not search_content[0].isalpha():
+            return render(request, 'predicting.html',
+                          {'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
+                           'algrithom_type': algrithom_type,'flag':'err'})
+
+    return render(request,'predicting.html',{'predictFlag':predictFlag,'search_type':search_type,'search_content':search_content,'algrithom_type':algrithom_type,'flag':'ok'})
 

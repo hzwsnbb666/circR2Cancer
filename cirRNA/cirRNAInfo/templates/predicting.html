@@ -13,9 +13,10 @@
     <script src="../static/js/browse.js"></script>
     <style>
 
-        select{
+        select {
             width: 150px;
         }
+
         .dropbtn {
             background-color: #82b13a;
             color: white;
@@ -176,10 +177,10 @@
                     var search_type = document.getElementById('search-type');
                     var algrithom_type = document.getElementById('algrithom-type');
                     var text = document.getElementById('text');
-                    if(search_type.value == 'circRNA'){
+                    if (search_type.value == 'circRNA') {
                         text.value = 'circ-Foxo3';
                     }
-                    else{
+                    else {
                         text.value = 'breast cancer';
                     }
                     algrithom_type.value = 'RWR';
@@ -187,16 +188,32 @@
             </script>
         </form>
     </div>
-    <div id="content">
-        <div class='{{ flag1 }}'>
+    {% if flag == 'ok' %}
+        <div id="content">
+            <div class='{{ predictFlag }}'>
 
+            </div>
         </div>
-    </div>
-    <div id="content">
-        <div class='{{ flag2 }}'>
+        <div id="content">
+            <div class='{{ predictFlag }}'>
 
+            </div>
         </div>
-    </div>
+    {% elif flag == 'err' %}
+        <canvas id="myCanvas" width="200" height="100">
+        </canvas>
+        <script type="text/javascript">
+            var canvas = document.getElementById("myCanvas");
+            alert("illegal character!");
+        </script>
+    {% else %}
+        <canvas id="myCanvas" width="200" height="100">
+        </canvas>
+        <script type="text/javascript">
+            var canvas = document.getElementById("myCanvas");
+            alert("Search content cannot be empty, please enter search content!");
+        </script>
+    {% endif %}
     <div id="footer">
         <p style="font-size: 18px">Maintained by
             <a href="http://biobd.gxu.edu.cn"> Bioinformatics Research Group</a> – GuangXi University
