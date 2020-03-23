@@ -436,7 +436,6 @@ def search(request):
 # 关于
 def about(request):
     return render(request, 'about.html', {})
-
 # 预测
 def predicting(request):
     predictFlag = "database-content2"
