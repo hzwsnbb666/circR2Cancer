@@ -10,7 +10,7 @@ from django.shortcuts import render
 import json
 from .models import cancer_info_test, circrna_info_test,circRNA_cancer_test,circRNA_cancer, cancer_info, circRNA_miRNA, miRNA_cancer, miRNA_info, \
     circrna_info
-
+import cirRNAInfo.DataHandle.NCPCDA as ncp
 
 # 主页
 def index(request):
@@ -444,6 +444,7 @@ def about(request):
     return render(request, 'about.html', {})
 # 预测
 def predicting(request):
+    resultList = []
     predictFlag = "database-content2"
 
 
@@ -459,12 +460,17 @@ def predicting(request):
                 break
         if search_content == '' or flag == 0:
             return render(request, 'predicting.html',
-                          {'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
+                          {'resultList':resultList,'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
                            'algrithom_type': algrithom_type,'flag':'no'})
         elif "$" in search_content or "'" in search_content or "%" in search_content or '"' in search_content or "@" in search_content or "+" in search_content or not search_content[0].isalpha():
             return render(request, 'predicting.html',
-                          {'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
+                          {'resultList':resultList,'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
                            'algrithom_type': algrithom_type,'flag':'err'})
+    else:
+        return render(request, 'predicting.html',
+                      {'resultList':resultList,'predictFlag': predictFlag, 'search_type': search_type, 'search_content': search_content,
+                       'algrithom_type': algrithom_type, 'flag': 'ok'})
+    predictFlag = 'database-content1'
 
-    return render(request,'predicting.html',{'predictFlag':predictFlag,'search_type':search_type,'search_content':search_content,'algrithom_type':algrithom_type,'flag':'ok'})
+    return render(request,'predicting.html',{'resultList':resultList,'predictFlag':predictFlag,'search_type':search_type,'search_content':search_content,'algrithom_type':algrithom_type,'flag':'ok'})
 

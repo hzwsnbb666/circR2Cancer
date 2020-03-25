@@ -1,7 +1,7 @@
 import numpy as np
 import pymysql
 import math
-
+import tenFolds as tf
 # 让ndarray输出时不使用省略号
 np.set_printoptions(threshold=np.inf, suppress=True)
 
@@ -151,7 +151,7 @@ def trainMatrix(cancerNum,circRNANum,circRNACancerData,parameter):
     return  resultMatrix
 def predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,parameter,circRNAName):
     circRNAId = 0
-    resultMatrix = trainMatrix(cancerNum,circRNANum,circRNACancerData,parameter)
+    resultMatrix, ROC_AUC, Mean_TPR, Mean_FPR = tf.AnalyseAlgrithom('NCPCDA')
     for i in range(0,circRNANum):
         if(circRNAData[i][1] == circRNAName):
             circRNAId = int(circRNAData[i][0])
@@ -168,7 +168,8 @@ def predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,parameter,circ
 
 def predictCancerToCircRNA(cancerNum,circRNANum,circRNACancerData,parameter,cancerName):
     cancerId = 0
-    resultMatrix = trainMatrix(cancerNum, circRNANum, circRNACancerData, parameter).T
+    resultMatrix, ROC_AUC, Mean_TPR, Mean_FPR = tf.AnalyseAlgrithom('Least Square')
+    resultMatrix = resultMatrix.T
     for i in range(cancerNum):
         if (cancerData[i][1] == cancerName):
             cancerId = int(circRNACancerData[i][0])

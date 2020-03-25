@@ -10,7 +10,7 @@ def AnalyseAlgrithom(methodName):
     circRNACancerData = list(td.circRNACancerData)
     random.shuffle(circRNACancerData)
     circRNACancerData = tuple(circRNACancerData)
-
+    meanResultMatrix = np.zeros((td.circRNANum,td.cancerNum))
     AMatrix = td.getCircRNACancerAssociation(td.cancerNum, td.circRNANum, circRNACancerData).T
 
     All_Sample_List = []
@@ -83,13 +83,15 @@ def AnalyseAlgrithom(methodName):
             FPRList.append(FPR)
         All_TPR_List.append(TPRList)
         All_FPR_List.append(FPRList)
+        meanResultMatrix += trainAllMatrix
     #平均TPR，FPR，先将每次TPR和FPR排序，然后依次按列取平均值，得到Mean_TPR,Mean_FPR,ROC_AUC
     Mean_TPR = np.mean(np.array(All_TPR_List), axis=0)
     Mean_FPR = np.mean(np.array(All_FPR_List), axis=0)
 
     ROC_AUC = np.trapz(Mean_TPR, Mean_FPR)
+    meanResultMatrix /= folds
 
-    return ROC_AUC,Mean_TPR,Mean_FPR
+    return meanResultMatrix,ROC_AUC,Mean_TPR,Mean_FPR
 
 def drawAllConfigure(ROC_AUC_List,Mean_TPR_List,Mean_FPR_List):
     x_major_locator = plt.MultipleLocator(0.1)
@@ -155,35 +157,8 @@ def drawConfigure(ROC_AUC,TPR,FPR):
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
     plt.legend(loc=0)
+    plt.savefig('NCPCDA.png')
     plt.show()
-    plt.savefig('Algrithom Mean ROC.jpg')
-
-def bestThresholds(trainList,testList):
-    tempList = trainList.copy()
-    tempList.sort(reverse=True)
-    TPRList = []
-    FPRList = []
-    for item in tempList:
-        TP = 0
-        FP = 0
-        FN = 0
-        TN = 0
-        Threshold = item
-        for i in range(trainList.__len__()):
-            if (testList == 1 and trainList[i] >= Threshold):
-                TP += 1
-            elif (testList == 0 and trainList[i] >= Threshold):
-                FP += 1
-            elif (testList == 1 and trainList[i] < Threshold):
-                FN += 1
-            else:
-                TN += 1
-        TPR = TP / (TP + FN) #计算真正例率
-        FPR = FP / (TN + FP) #计算假正例率
-        TPRList.append(TPR)
-        FPRList.append(FPR)
-    ROC_AUC = np.trapz(TPRList,FPRList)
-    drawConfigure(ROC_AUC,np.array(TPRList),np.array(FPRList))
 
 
 if __name__ == "__main__":
@@ -193,7 +168,7 @@ if __name__ == "__main__":
     # ROC_AUC1, TPR1, FPR1 = AnalyseAlgrithom('Random Walk with Restart')
     # ROC_AUC2, TPR2, FPR2 = AnalyseAlgrithom('Least Square')
     # ROC_AUC3, TPR3, FPR3 = AnalyseAlgrithom('KATZHCDA')
-    ROC_AUC4, TPR4, FPR4 = AnalyseAlgrithom('NCPCDA')
+    meanResultMatrix,ROC_AUC4, TPR4, FPR4 = AnalyseAlgrithom('NCPCDA')
     drawConfigure(ROC_AUC4,TPR4,FPR4)
     # ROC_AUC_List.append(ROC_AUC1)
     # ROC_AUC_List.append(ROC_AUC2)

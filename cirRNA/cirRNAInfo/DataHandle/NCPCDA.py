@@ -1,7 +1,8 @@
 import numpy as np
 import pymysql
 import math
-
+from sklearn.metrics import roc_curve, auc
+import tenFolds as tf
 # 让ndarray输出时不使用省略号
 np.set_printoptions(threshold=np.inf, suppress=True)
 
@@ -28,7 +29,7 @@ cancerNum = cancerData.__len__()
 
 
 # 获取Human circRNA–Disease Associations矩阵(circRNA i为第i行，Cancer j为第j列）
-def getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData):
+def getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData) :
     resultMatrix = np.zeros((cancerNum, circRNANum), dtype=np.float)
     for i in range(0, circRNACancerData.__len__()):
         circRNAIndex = int(circRNACancerData[i][0])
@@ -37,8 +38,9 @@ def getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData):
 
     return resultMatrix.T
 
+# circRNA与circRNA的相似性矩阵
+def CS(AMatrix, circRNANum, cancerNum) :
 
-def SC(AMatrix, circRNANum, cancerNum):
     IP_2 = 0.0
     IPi_2 = 0.0
     Nc = circRNANum
@@ -58,12 +60,8 @@ def SC(AMatrix, circRNANum, cancerNum):
             IP_2 = 0.0
     return CCMatrix
 
-
-
-
-
-# 这里的相似性矩阵传参时应该传入它的转置
-def SD(AMatrix, circRNANum, cancerNum) :
+# Cancer与Cancer的相似性矩阵
+def DS(AMatrix, circRNANum, cancerNum) :
     IP_2 = 0.0
     IPi_2 = 0.0
     Nd = cancerNum
@@ -81,28 +79,40 @@ def SD(AMatrix, circRNANum, cancerNum) :
             IP_2 = 0.0
     return DDMatrix
 
-
-def A_(SCMatrix,SDMatrix,AMatrix):
-    resultMatrix = np.vstack((np.hstack((SCMatrix, AMatrix)), np.hstack((AMatrix.T, SDMatrix))))
+def CSP(circRNANum,cancerNum,CSMatrix,AMatrix):
+    resultMatrix = np.zeros((circRNANum,cancerNum),dtype=float)
+    for i in range(circRNANum):
+        for j in range(cancerNum):
+            if(np.sum(AMatrix[:,j])==0):
+                resultMatrix[i][j] = np.matmul(CSMatrix[i:i+1,:],AMatrix[:,j:j+1])
+            else:
+                resultMatrix[i][j] = np.matmul(CSMatrix[i:i+1,:],AMatrix[:,j:j+1])/np.sum(AMatrix[:,j])
     return resultMatrix
-def S(A_Matrix,circRNANum,cancerNum,y_=0.1):
-    # IMatrix = np.zeros((circRNANum+cancerNum,circRNANum+cancerNum),dtype=float)
-    # for i in range(circRNANum+cancerNum):
-    #     IMatrix[i][i] = 1.0
-    #
-    # resultMatrix = np.linalg.inv(IMatrix - y_ * A_Matrix) - IMatrix
-    # return resultMatrix
-    resultMatrix = y_*A_Matrix+pow(y_,2)*np.matmul(A_Matrix,A_Matrix)
+def DSP(circRNANum,cancerNum,DSMatrix,AMatrix):
+    resultMatrix = np.zeros((circRNANum, cancerNum), dtype=float)
+    for i in range(circRNANum):
+        for j in range(cancerNum):
+            if(np.sum(AMatrix[i,:])==0):
+                resultMatrix[i][j] = np.matmul(AMatrix[i:i + 1, :], DSMatrix[:, j:j + 1])
+            else:
+                resultMatrix[i][j] = np.matmul(AMatrix[i:i+1,:],DSMatrix[:,j:j+1])/np.sum(AMatrix[i,:])
+    return resultMatrix
+
+def trainMatrix(cancerNum,circRNANum,circRNACancerData):
+    AMatrix = getCircRNACancerAssociation(cancerNum,circRNANum,circRNACancerData)
+    CSMatrix = CS(AMatrix,circRNANum,cancerNum)
+    DSMatrix = DS(AMatrix.T,circRNANum,cancerNum)
+    CSPMatrix = CSP(circRNANum,cancerNum,CSMatrix,AMatrix)
+    DSPMatrix = DSP(circRNANum,cancerNum,DSMatrix,AMatrix)
+    resultMatrix = np.zeros((circRNANum,cancerNum))
+    for i in range(circRNANum):
+        for j in range(cancerNum):
+            resultMatrix[i][j] = (CSPMatrix[i][j] + DSPMatrix[i][j])/(np.sum(CSPMatrix[i,:])+np.sum(DSMatrix[:,j]))
     return resultMatrix
 
 def predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,circRNAName):
-    AMatrix = getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData)
-    SCMatrix = SC(AMatrix, circRNANum, cancerNum)
-    SDMatrix = SD(AMatrix.T, circRNANum, cancerNum)
-
-    A_Matrix = A_(SCMatrix, SDMatrix, AMatrix)
-    SMatrix = S(A_Matrix, circRNANum, cancerNum)
     circRNAId = 0
+    resultMatrix,ROC_AUC,Mean_TPR,Mean_FPR = tf.AnalyseAlgrithom('NCPCDA')
     for i in range(0,circRNANum):
         if(circRNAData[i][1] == circRNAName):
             circRNAId = int(circRNAData[i][0])
@@ -111,38 +121,36 @@ def predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,circRNAName):
         return None
     resultList = []
     for i in range(cancerNum):
-        resultList.append((cancerData[i][1], np.around(SMatrix[circRNAId - 1][circRNANum+i], decimals=9)))
-    resultList.sort(key=lambda x:x[1],reverse=True)
+        resultList.append((cancerData[i][1],np.around(resultMatrix[circRNAId-1][i],decimals=7)))
+    resultList.sort(key=lambda x: x[1], reverse=True)
     return resultList
+
+
+
 def predictCancerToCircRNA(cancerNum,circRNANum,circRNACancerData,cancerName):
-    AMatrix = getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData)
-    SCMatrix = SC(AMatrix, circRNANum, cancerNum)
-    SDMatrix = SD(AMatrix.T, circRNANum, cancerNum)
-    A_Matrix = A_(SCMatrix, SDMatrix, AMatrix)
-    SMatrix = S(A_Matrix, circRNANum, cancerNum)
     cancerId = 0
-    for i in range(0,cancerNum):
-        if(cancerData[i][1] == cancerName):
-            cancerId = int(cancerData[i][0])
+    resultMatrix, ROC_AUC, Mean_TPR, Mean_FPR = tf.AnalyseAlgrithom('NCPCDA')
+    resultMatrix = resultMatrix.T
+    AMatrix = getCircRNACancerAssociation(cancerNum,circRNANum,circRNACancerData).T
+    for i in range(cancerNum):
+        if (cancerData[i][1] == cancerName):
+            cancerId = int(circRNACancerData[i][0])
             break
     if (cancerId == 0):
         return None
+
+
     resultList = []
     for i in range(circRNANum):
-        resultList.append((circRNAData[i][1], np.around(SMatrix[i][cancerId - 1+circRNANum], decimals=9)))
-    resultList.sort(key=lambda x:x[1],reverse=True)
+        resultList.append((circRNAData[i][1], np.around(resultMatrix[cancerId - 1][i], decimals=7)))
+    resultList.sort(key=lambda x: x[1], reverse=True)
     return resultList
-def trainMatrix(cancerNum,circRNANum,circRNACancerData):
-    AMatrix = getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData)
-    SCMatrix = SC(AMatrix, circRNANum, cancerNum)
-    SDMatrix = SD(AMatrix.T, circRNANum, cancerNum)
-    A_Matrix = A_(SCMatrix, SDMatrix, AMatrix)
-    SMatrix = S(A_Matrix, circRNANum, cancerNum)
-    return  SMatrix
-
-
 if __name__ == "__main__":
-    resultList1 = predictCancerToCircRNA(cancerNum, circRNANum, circRNACancerData, 'breast cancer')
-    resultList2 = predictCircRNAToCancer(cancerNum, circRNANum, circRNACancerData, 'circ-Amotl1')
+    resultList1 = predictCancerToCircRNA(cancerNum,circRNANum,circRNACancerData,'breast cancer')
+    # resultList2 = predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,'circ-Amotl1')
     print(resultList1)
-    print(resultList2)
+    # print(resultList2)
+    # train_Matrix = trainMatrix(cancerNum,circRNANum,circRNACancerData)[0]
+    # AMatrix = getCircRNACancerAssociation(cancerNum,circRNANum,circRNACancerData)[0]
+    # fpr,tpr,thresholds = roc_curve(AMatrix,train_Matrix)
+    # print(thresholds)
