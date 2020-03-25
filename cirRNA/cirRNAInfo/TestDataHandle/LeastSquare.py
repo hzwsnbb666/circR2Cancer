@@ -5,7 +5,7 @@ import math
 # 让ndarray输出时不使用省略号
 np.set_printoptions(threshold=np.inf, suppress=True)
 
-# 连接数据库
+## 连接数据库
 db = pymysql.connect("localhost", "root", "123456", "cirrna")  # 连接数据库
 cursor = db.cursor()
 
@@ -28,7 +28,7 @@ cancerNum = cancerData.__len__()
 
 
 # 获取Human circRNA–Disease Associations矩阵(circRNA i为第i行，Cancer j为第j列）
-def getCircRNACancerAssociation(cancerNum: int, circRNANum: int, circRNACancerData: tuple) -> np.ndarray:
+def getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData) :
     resultMatrix = np.zeros((cancerNum, circRNANum), dtype=np.float)
     for i in range(0, circRNACancerData.__len__()):
         circRNAIndex = int(circRNACancerData[i][0])
@@ -38,11 +38,10 @@ def getCircRNACancerAssociation(cancerNum: int, circRNANum: int, circRNACancerDa
     return resultMatrix.T
 
 
-def KC(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
-    IP: np.ndarray
-    IP_2: float = 0.0
-    IPi_2: float = 0.0
-    Nc: float = circRNANum
+def KC(AMatrix, circRNANum, cancerNum) :
+    IP_2 = 0.0
+    IPi_2 = 0.0
+    Nc = circRNANum
     CCMatrix = np.zeros((circRNANum, circRNANum), dtype=np.float)
     for i in range(circRNANum):
         for j in range(cancerNum):
@@ -64,10 +63,9 @@ def KC(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
 
 
 # 这里的相似性矩阵传参时应该传入它的转置
-def KD(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
-    IP: np.ndarray
-    IP_2: float = 0.0
-    IPi_2: float = 0.0
+def KD(AMatrix, circRNANum, cancerNum) :
+    IP_2 = 0.0
+    IPi_2 = 0.0
     Nd = cancerNum
     DDMatrix = np.zeros((cancerNum, cancerNum), dtype=np.float)
     for i in range(cancerNum):
@@ -83,7 +81,7 @@ def KD(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
             IP_2 = 0.0
     return DDMatrix
 
-def SC(KCMatrix: np.ndarray, circRNANum: int) -> np.ndarray:
+def SC(KCMatrix, circRNANum) :
     resultMatrix = np.zeros((circRNANum, circRNANum), dtype=float)
     for i in range(circRNANum):
         for j in range(circRNANum):
@@ -91,14 +89,14 @@ def SC(KCMatrix: np.ndarray, circRNANum: int) -> np.ndarray:
     # print(resultMatrix)
     return resultMatrix
 
-def SD(KDMatrix: np.ndarray, cancerNum: int) -> np.ndarray:
+def SD(KDMatrix, cancerNum) :
     resultMatrix = np.zeros((cancerNum, cancerNum), dtype=float)
     for i in range(cancerNum):
         for j in range(cancerNum):
             resultMatrix[i][j] = 1.0 / (1.0 + np.exp(-15 * KDMatrix[i][j] + np.log(9999)))
     return resultMatrix
 
-def LC(SCMatrix: np.ndarray,circRNANum:int) -> np.ndarray:
+def LC(SCMatrix,circRNANum) :
     DCMatrix = np.zeros((circRNANum,circRNANum),dtype=float)
     for i in range(circRNANum):
         DCMatrix[i][i] = np.sum(SCMatrix[i])
@@ -112,7 +110,7 @@ def LC(SCMatrix: np.ndarray,circRNANum:int) -> np.ndarray:
     resultMatrix = np.matmul(np.matmul(DCMatrix_1_2,DCMatrix-SCMatrix),DCMatrix_1_2)
     return resultMatrix
 
-def LD(SDMatrix: np.ndarray,cancerNum:int) -> np.ndarray:
+def LD(SDMatrix,cancerNum) :
     DDMatrix = np.zeros((cancerNum,cancerNum),dtype=float)
     for i in range(cancerNum):
         DDMatrix[i][i] = np.sum(SDMatrix[i])
@@ -125,14 +123,14 @@ def LD(SDMatrix: np.ndarray,cancerNum:int) -> np.ndarray:
     resultMatrix = np.matmul(np.matmul(DDMatrix_1_2,DDMatrix-SDMatrix),DDMatrix_1_2)
     return resultMatrix
 
-def FC(SCMatrix:np.ndarray,LCMatrix:np.ndarray,AMatrix:np.ndarray)->np.ndarray:
+def FC(SCMatrix,LCMatrix,AMatrix):
     resultMatrix = np.matmul(np.matmul(SCMatrix,SCMatrix+np.matmul(LCMatrix,SCMatrix)),AMatrix)
     return resultMatrix
 
-def FD(SDMatrix:np.ndarray,LDMatrix:np.ndarray,AMatrix:np.ndarray)->np.ndarray:
+def FD(SDMatrix,LDMatrix,AMatrix):
     resultMatrix = np.matmul(np.matmul(SDMatrix,SDMatrix+np.matmul(LDMatrix,SDMatrix)),AMatrix.T)
     return resultMatrix
-def trainMatrix(cancerNum:int,circRNANum:int,circRNACancerData:tuple,parameter:float)->np.ndarray:
+def trainMatrix(cancerNum,circRNANum,circRNACancerData,parameter):
     AMatrix = getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData)
     KCMatrix = KC(AMatrix, circRNANum, cancerNum)
     SCMatrix = SC(KCMatrix, circRNANum)
@@ -151,7 +149,7 @@ def trainMatrix(cancerNum:int,circRNANum:int,circRNACancerData:tuple,parameter:f
 
     resultMatrix = parameter*FCMatrix+(1-parameter)*FDMatrix.T
     return  resultMatrix
-def predictCircRNAToCancer(cancerNum:int,circRNANum:int,circRNACancerData:tuple,parameter:float,circRNAName:str):
+def predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,parameter,circRNAName):
     circRNAId = 0
     resultMatrix = trainMatrix(cancerNum,circRNANum,circRNACancerData,parameter)
     for i in range(0,circRNANum):
@@ -168,7 +166,7 @@ def predictCircRNAToCancer(cancerNum:int,circRNANum:int,circRNACancerData:tuple,
 
 
 
-def predictCancerToCircRNA(cancerNum:int,circRNANum:int,circRNACancerData:tuple,parameter:float,cancerName:str):
+def predictCancerToCircRNA(cancerNum,circRNANum,circRNACancerData,parameter,cancerName):
     cancerId = 0
     resultMatrix = trainMatrix(cancerNum, circRNANum, circRNACancerData, parameter).T
     for i in range(cancerNum):

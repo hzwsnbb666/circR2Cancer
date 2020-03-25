@@ -29,7 +29,7 @@ cancerNum = cancerData.__len__()
 
 
 # 获取Human circRNA–Disease Associations矩阵(circRNA i为第i行，Cancer j为第j列）
-def getCircRNACancerAssociation(cancerNum: int, circRNANum: int, circRNACancerData: tuple) -> np.ndarray:
+def getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData) :
     resultMatrix = np.zeros((cancerNum, circRNANum), dtype=np.float)
     for i in range(0, circRNACancerData.__len__()):
         circRNAIndex = int(circRNACancerData[i][0])
@@ -39,11 +39,11 @@ def getCircRNACancerAssociation(cancerNum: int, circRNANum: int, circRNACancerDa
     return resultMatrix.T
 
 # circRNA与circRNA的相似性矩阵
-def CS(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
-    IP: np.ndarray
-    IP_2: float = 0.0
-    IPi_2: float = 0.0
-    Nc: float = circRNANum
+def CS(AMatrix, circRNANum, cancerNum) :
+
+    IP_2 = 0.0
+    IPi_2 = 0.0
+    Nc = circRNANum
     CCMatrix = np.zeros((circRNANum, circRNANum), dtype=np.float)
     for i in range(circRNANum):
         for j in range(cancerNum):
@@ -61,10 +61,9 @@ def CS(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
     return CCMatrix
 
 # Cancer与Cancer的相似性矩阵
-def DS(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
-    IP: np.ndarray
-    IP_2: float = 0.0
-    IPi_2: float = 0.0
+def DS(AMatrix, circRNANum, cancerNum) :
+    IP_2 = 0.0
+    IPi_2 = 0.0
     Nd = cancerNum
     DDMatrix = np.zeros((cancerNum, cancerNum), dtype=np.float)
     for i in range(cancerNum):
@@ -80,7 +79,7 @@ def DS(AMatrix: np.ndarray, circRNANum: int, cancerNum: int) -> np.ndarray:
             IP_2 = 0.0
     return DDMatrix
 
-def CSP(circRNANum:int,cancerNum:int,CSMatrix:np.ndarray,AMatrix:np.ndarray):
+def CSP(circRNANum,cancerNum,CSMatrix,AMatrix):
     resultMatrix = np.zeros((circRNANum,cancerNum),dtype=float)
     for i in range(circRNANum):
         for j in range(cancerNum):
@@ -89,7 +88,7 @@ def CSP(circRNANum:int,cancerNum:int,CSMatrix:np.ndarray,AMatrix:np.ndarray):
             else:
                 resultMatrix[i][j] = np.matmul(CSMatrix[i:i+1,:],AMatrix[:,j:j+1])/np.sum(AMatrix[:,j])
     return resultMatrix
-def DSP(circRNANum:int,cancerNum:int,DSMatrix:np.ndarray,AMatrix:np.ndarray):
+def DSP(circRNANum,cancerNum,DSMatrix,AMatrix):
     resultMatrix = np.zeros((circRNANum, cancerNum), dtype=float)
     for i in range(circRNANum):
         for j in range(cancerNum):
@@ -99,7 +98,7 @@ def DSP(circRNANum:int,cancerNum:int,DSMatrix:np.ndarray,AMatrix:np.ndarray):
                 resultMatrix[i][j] = np.matmul(AMatrix[i:i+1,:],DSMatrix[:,j:j+1])/np.sum(AMatrix[i,:])
     return resultMatrix
 
-def trainMatrix(cancerNum:int,circRNANum:int,circRNACancerData:tuple):
+def trainMatrix(cancerNum,circRNANum,circRNACancerData):
     AMatrix = getCircRNACancerAssociation(cancerNum,circRNANum,circRNACancerData)
     CSMatrix = CS(AMatrix,circRNANum,cancerNum)
     DSMatrix = DS(AMatrix.T,circRNANum,cancerNum)
@@ -111,7 +110,7 @@ def trainMatrix(cancerNum:int,circRNANum:int,circRNACancerData:tuple):
             resultMatrix[i][j] = (CSPMatrix[i][j] + DSPMatrix[i][j])/(np.sum(CSPMatrix[i,:])+np.sum(DSMatrix[:,j]))
     return resultMatrix
 
-def predictCircRNAToCancer(cancerNum:int,circRNANum:int,circRNACancerData:tuple,circRNAName:str):
+def predictCircRNAToCancer(cancerNum,circRNANum,circRNACancerData,circRNAName):
     circRNAId = 0
     resultMatrix = trainMatrix(cancerNum,circRNANum,circRNACancerData)
     for i in range(0,circRNANum):
@@ -128,7 +127,7 @@ def predictCircRNAToCancer(cancerNum:int,circRNANum:int,circRNACancerData:tuple,
 
 
 
-def predictCancerToCircRNA(cancerNum:int,circRNANum:int,circRNACancerData:tuple,cancerName:str):
+def predictCancerToCircRNA(cancerNum,circRNANum,circRNACancerData,cancerName):
     cancerId = 0
     resultMatrix = trainMatrix(cancerNum, circRNANum, circRNACancerData).T
     AMatrix = getCircRNACancerAssociation(cancerNum,circRNANum,circRNACancerData).T

@@ -6,7 +6,7 @@ import RWR as rwr
 import numpy as np
 import testData as td
 import NCPCDA as ncp
-def AnalyseAlgrithom(methodName:str):
+def AnalyseAlgrithom(methodName):
     circRNACancerData = list(td.circRNACancerData)
     random.shuffle(circRNACancerData)
     circRNACancerData = tuple(circRNACancerData)
@@ -91,7 +91,7 @@ def AnalyseAlgrithom(methodName:str):
 
     return ROC_AUC,Mean_TPR,Mean_FPR
 
-def drawAllConfigure(ROC_AUC_List:list,Mean_TPR_List:list,Mean_FPR_List:list):
+def drawAllConfigure(ROC_AUC_List,Mean_TPR_List,Mean_FPR_List):
     x_major_locator = plt.MultipleLocator(0.1)
 
     # 把x轴的刻度间隔设置为0.1，并存在变量里
@@ -125,7 +125,7 @@ def drawAllConfigure(ROC_AUC_List:list,Mean_TPR_List:list,Mean_FPR_List:list):
     plt.ylabel('True Positive Rate')
     plt.legend(loc=0)
     plt.show()
-def drawConfigure(ROC_AUC:float,TPR:np.ndarray,FPR:np.ndarray):
+def drawConfigure(ROC_AUC,TPR,FPR):
     x_major_locator = plt.MultipleLocator(0.1)
 
     # 把x轴的刻度间隔设置为0.1，并存在变量里
@@ -158,7 +158,7 @@ def drawConfigure(ROC_AUC:float,TPR:np.ndarray,FPR:np.ndarray):
     plt.show()
     plt.savefig('Algrithom Mean ROC.jpg')
 
-def bestThresholds(trainList:list,testList:list):
+def bestThresholds(trainList,testList):
     tempList = trainList.copy()
     tempList.sort(reverse=True)
     TPRList = []

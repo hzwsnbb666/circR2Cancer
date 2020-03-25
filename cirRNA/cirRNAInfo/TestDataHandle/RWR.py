@@ -26,7 +26,7 @@ cancerData = cursor.fetchall()
 cancerNum = cancerData.__len__()
 
 # 获取Human circRNA–Disease Associations矩阵
-def getCircRNACancerAssociation(cancerNum:int,circRNANum:int,circRNACancerData:tuple) -> np.ndarray:
+def getCircRNACancerAssociation(cancerNum,circRNANum,circRNACancerData) :
     resultMatrix = np.zeros((cancerNum, circRNANum), dtype=np.int)
     for i in range(0, circRNACancerData.__len__()):
         circRNAIndex = int(circRNACancerData[i][0])
@@ -38,10 +38,9 @@ def getCircRNACancerAssociation(cancerNum:int,circRNANum:int,circRNACancerData:t
 
 
 # Gaussian interaction profile kernel similarity for circRNAs
-def CC(AMatrix: np.ndarray,circRNANum:int,cancerNum:int) -> np.ndarray:
-    IP: np.ndarray
-    IP_2: float = 0.0
-    IPi_2: float = 0.0
+def CC(AMatrix,circRNANum,cancerNum) :
+    IP_2 = 0.0
+    IPi_2 = 0.0
     ym_ = circRNANum
     CCMatrix = np.zeros((circRNANum, circRNANum), dtype=np.float)
     for i in range(circRNANum):
@@ -58,10 +57,9 @@ def CC(AMatrix: np.ndarray,circRNANum:int,cancerNum:int) -> np.ndarray:
     return np.around(CCMatrix, decimals=7)
 
 
-def DD(AMatrix: np.ndarray,circRNANum:int,cancerNum:int) -> np.ndarray:
-    IP: np.ndarray
-    IP_2: float = 0.0
-    IPi_2: float = 0.0
+def DD(AMatrix,circRNANum,cancerNum) :
+    IP_2 = 0.0
+    IPi_2 = 0.0
     yd_ = cancerNum
     DDMatrix = np.zeros((cancerNum, cancerNum), dtype=np.float)
 
@@ -79,7 +77,7 @@ def DD(AMatrix: np.ndarray,circRNANum:int,cancerNum:int) -> np.ndarray:
     return np.around(DDMatrix, decimals=7)
 
 
-def WDD(AMatrix: np.ndarray, DMatrix: np.ndarray,cancerNum:int,parameter: float = 0.5) -> np.ndarray:
+def WDD(AMatrix, DMatrix,cancerNum,parameter = 0.5) :
     WDDMatrix = np.zeros((cancerNum, cancerNum), dtype=np.float)
     Asum = 0
     Dsum = 0
@@ -94,7 +92,7 @@ def WDD(AMatrix: np.ndarray, DMatrix: np.ndarray,cancerNum:int,parameter: float 
     return np.around(WDDMatrix, decimals=7)
 
 
-def WCC(AMatrix: np.ndarray, CMatrix: np.ndarray, circRNANum:int,parameter: float = 0.5) -> np.ndarray:
+def WCC(AMatrix, CMatrix, circRNANum,parameter = 0.5) :
     WCCMatrix = np.zeros((circRNANum, circRNANum), dtype=np.float)
     Asum = 0
     Csum = 0
@@ -109,7 +107,7 @@ def WCC(AMatrix: np.ndarray, CMatrix: np.ndarray, circRNANum:int,parameter: floa
     return np.around(WCCMatrix, decimals=7)
 
 
-def WTD(AMatrix: np.ndarray,circRNANum:int,cancerNum:int, parameter: float = 0.5) -> np.ndarray:
+def WTD(AMatrix,circRNANum,cancerNum, parameter = 0.5) :
     WTDMatrix = np.zeros((cancerNum, circRNANum), np.float)
     Asum = 0
     for i in range(cancerNum):
@@ -123,7 +121,7 @@ def WTD(AMatrix: np.ndarray,circRNANum:int,cancerNum:int, parameter: float = 0.5
 
 
 
-def WTC(AMatrix: np.ndarray, circRNANum:int,cancerNum:int,parameter: float = 0.5) -> np.ndarray:
+def WTC(AMatrix, circRNANum,cancerNum,parameter = 0.5) :
     WTCMatrix = np.zeros((circRNANum, cancerNum), np.float)
     Asum = 0
     for i in range(circRNANum):
@@ -139,7 +137,7 @@ def WTC(AMatrix: np.ndarray, circRNANum:int,cancerNum:int,parameter: float = 0.5
 
 
 
-def trainMatrix(circRNANum:int,cancerNum:int,circRNACancerData:tuple,parameter1:float,parameter2:float,r:float)->(np.ndarray,np.ndarray):
+def trainMatrix(circRNANum,cancerNum,circRNACancerData,parameter1,parameter2,r):
     AMatrix = getCircRNACancerAssociation(cancerNum, circRNANum, circRNACancerData)
     CMatrix = CC(AMatrix.T, circRNANum, cancerNum)
     DMatrix = DD(AMatrix, circRNANum, cancerNum)
@@ -173,14 +171,14 @@ def trainMatrix(circRNANum:int,cancerNum:int,circRNACancerData:tuple,parameter1:
 
 
 
-def p(WMatrix:np.ndarray,t:int,r:float,p0:np.ndarray)->np.ndarray:
+def p(WMatrix,t,r,p0):
     if (t == 0 ):
         return p0
     else:
         return (1-r) * np.matmul(WMatrix,p(WMatrix,t-1,r,p0)) + r*p0
 
 
-def predictCancerToCircRNA(circRNANum:int,cancerNum:int,circRNACancerData:tuple,parameter1:float,parameter2:float,r:float,cancerName:str):
+def predictCancerToCircRNA(circRNANum,cancerNum,circRNACancerData,parameter1,parameter2,r,cancerName):
     cancerId = 0
     for i in range(0,cancerNum):
         if(cancerData[i][1] == cancerName):
@@ -197,7 +195,7 @@ def predictCancerToCircRNA(circRNANum:int,cancerNum:int,circRNACancerData:tuple,
     return resultList
 
 #预测指定circRNA的Cancer
-def predictCircRNAToCancer(circRNANum:int,cancerNum:int,circRNACancerData:tuple,parameter1:float,parameter2:float,r:float,circRNAName:str):
+def predictCircRNAToCancer(circRNANum,cancerNum,circRNACancerData,parameter1,parameter2,r,circRNAName):
     circRNAId = 0
     for i in range(0,circRNANum):
         if(circRNAData[i][1] == circRNAName):
@@ -214,7 +212,7 @@ def predictCircRNAToCancer(circRNANum:int,cancerNum:int,circRNACancerData:tuple,
 
 
 #由于做算法对比时，circRNA和Cancer的ID是从0开始的，因此需要重写一个类似的getCircRNACancerAssociation2方法
-def getCircRNACancerAssociation2(cancerNum:int,circRNANum:int,circRNACancerData:tuple) -> np.ndarray:
+def getCircRNACancerAssociation2(cancerNum,circRNANum,circRNACancerData) :
     resultMatrix = np.zeros((cancerNum, circRNANum), dtype=np.int)
     for i in range(0, circRNACancerData.__len__()):
         circRNAIndex = int(circRNACancerData[i][0])
