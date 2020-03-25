@@ -360,6 +360,12 @@ def search(request):
                            'mirna_cancer': mirna_cancer,
                            'Cir1': cir1, 'Cir2': cir2, 'Cir3': cir3, 'search_content': search_content,
                            'search_type': search_type,'picFlag':picFlag})
+    else:
+        return render(request, 'search.html',
+                      {'flag1': 'ok', 'circrna_cancer': circrna_cancer, 'circrna_mirna': circrna_mirna,
+                       'mirna_cancer': mirna_cancer,
+                       'Cir1': cir1, 'Cir2': cir2, 'Cir3': cir3, 'search_content': search_content,
+                       'search_type': search_type, 'picFlag': picFlag})
     picFlag = 'database-content1'
     if search_type == "circRNA":
         cir1 = "database-content1"
